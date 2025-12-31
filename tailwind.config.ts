@@ -51,9 +51,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Cosmic green theme colors
-        "glow-cyan": "hsl(165 100% 50%)",
-        "glow-green": "hsl(140 80% 50%)",
+        // Cosmic blue theme colors
+        "glow-blue": "hsl(210 100% 55%)",
+        "glow-cyan": "hsl(195 100% 50%)",
         garden: {
           dirt: "hsl(var(--dirt))",
           grass: "hsl(var(--grass))",

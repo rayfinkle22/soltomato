@@ -41,13 +41,13 @@ export const BiodomeSection = () => {
               </div>
             </div>
 
-            {/* Iframe - taller to show all content without scrolling */}
+            {/* Iframe - taller to show all content without scrolling, sandbox allows real-time updates */}
             <iframe
               src="https://autoncorp.com/biodome/"
               className="w-full h-[1400px] sm:h-[1600px] lg:h-[1800px] border-0"
               title="Verdant Biodome - Sol the Trophy Tomato Live Feed"
-              loading="lazy"
-              style={{ overflow: 'hidden' }}
+              allow="autoplay; encrypted-media"
+              referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
         </div>
