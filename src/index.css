@@ -6,87 +6,89 @@
 
 @layer base {
   :root {
-    /* Warm tomato garden theme */
-    --background: 20 25% 12%;
-    --foreground: 35 20% 95%;
+    /* Cosmic green agentic theme */
+    --background: 160 30% 6%;
+    --foreground: 150 30% 92%;
 
-    --card: 20 22% 16%;
-    --card-foreground: 35 20% 95%;
+    --card: 160 25% 10%;
+    --card-foreground: 150 30% 92%;
 
-    --popover: 25 18% 20%;
-    --popover-foreground: 35 20% 95%;
+    --popover: 160 22% 12%;
+    --popover-foreground: 150 30% 92%;
 
-    /* Rich tomato red accent */
-    --primary: 8 85% 50%;
-    --primary-foreground: 0 0% 100%;
+    /* Neon cyan/mint accent */
+    --primary: 165 100% 50%;
+    --primary-foreground: 160 30% 6%;
 
-    /* Earthy brown secondary */
-    --secondary: 25 45% 30%;
-    --secondary-foreground: 0 0% 100%;
+    /* Dark teal secondary */
+    --secondary: 170 50% 18%;
+    --secondary-foreground: 150 30% 92%;
 
-    --muted: 25 20% 25%;
-    --muted-foreground: 35 15% 70%;
+    --muted: 160 25% 15%;
+    --muted-foreground: 150 20% 60%;
 
-    /* Golden yellow accent */
-    --accent: 45 100% 50%;
-    --accent-foreground: 0 0% 10%;
+    /* Tomato red accent */
+    --accent: 8 85% 55%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 25 18% 25%;
-    --input: 25 18% 25%;
-    --ring: 8 85% 50%;
+    --border: 165 30% 20%;
+    --input: 165 30% 20%;
+    --ring: 165 100% 50%;
 
     --radius: 0.75rem;
 
-    /* Garden colors */
-    --dirt: 30 40% 25%;
-    --grass: 95 50% 40%;
-    --grass-light: 90 55% 55%;
+    /* Cosmic garden colors */
+    --dirt: 160 30% 12%;
+    --grass: 165 70% 35%;
+    --grass-light: 160 80% 45%;
     --tomato: 8 85% 50%;
     --tomato-dark: 5 80% 40%;
-    --leaf-green: 120 60% 35%;
-    --stem-green: 100 50% 30%;
+    --leaf-green: 150 80% 45%;
+    --stem-green: 155 70% 35%;
+    --glow-cyan: 165 100% 50%;
+    --glow-green: 140 80% 50%;
 
-    --sidebar-background: 20 22% 10%;
-    --sidebar-foreground: 35 15% 92%;
-    --sidebar-primary: 8 85% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 45 100% 50%;
-    --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 25 18% 25%;
-    --sidebar-ring: 8 85% 50%;
+    --sidebar-background: 160 25% 8%;
+    --sidebar-foreground: 150 30% 92%;
+    --sidebar-primary: 165 100% 50%;
+    --sidebar-primary-foreground: 160 30% 6%;
+    --sidebar-accent: 8 85% 55%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 165 30% 20%;
+    --sidebar-ring: 165 100% 50%;
   }
 
   .dark {
-    --background: 20 30% 6%;
-    --foreground: 35 20% 92%;
-    --card: 20 25% 10%;
-    --card-foreground: 35 20% 92%;
-    --popover: 20 25% 10%;
-    --popover-foreground: 35 20% 92%;
-    --primary: 8 90% 55%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 25 40% 20%;
-    --secondary-foreground: 35 20% 92%;
-    --muted: 25 25% 15%;
-    --muted-foreground: 35 15% 55%;
-    --accent: 45 100% 55%;
-    --accent-foreground: 0 0% 10%;
+    --background: 160 35% 4%;
+    --foreground: 150 30% 92%;
+    --card: 160 28% 8%;
+    --card-foreground: 150 30% 92%;
+    --popover: 160 28% 8%;
+    --popover-foreground: 150 30% 92%;
+    --primary: 165 100% 55%;
+    --primary-foreground: 160 35% 4%;
+    --secondary: 170 45% 15%;
+    --secondary-foreground: 150 30% 92%;
+    --muted: 160 28% 12%;
+    --muted-foreground: 150 18% 50%;
+    --accent: 8 90% 58%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-    --border: 25 20% 18%;
-    --input: 25 20% 18%;
-    --ring: 8 90% 55%;
-    --sidebar-background: 20 25% 8%;
-    --sidebar-foreground: 35 20% 92%;
-    --sidebar-primary: 8 90% 55%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 45 100% 55%;
-    --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 25 20% 18%;
-    --sidebar-ring: 8 90% 55%;
+    --border: 165 28% 16%;
+    --input: 165 28% 16%;
+    --ring: 165 100% 55%;
+    --sidebar-background: 160 28% 6%;
+    --sidebar-foreground: 150 30% 92%;
+    --sidebar-primary: 165 100% 55%;
+    --sidebar-primary-foreground: 160 35% 4%;
+    --sidebar-accent: 8 90% 58%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 165 28% 16%;
+    --sidebar-ring: 165 100% 55%;
   }
 }
 
@@ -102,6 +104,11 @@
 
   body {
     @apply bg-background text-foreground font-body font-semibold min-h-screen;
+    background: 
+      radial-gradient(ellipse at 20% 20%, hsl(165 100% 50% / 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, hsl(140 80% 50% / 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, hsl(8 85% 50% / 0.03) 0%, transparent 70%),
+      hsl(var(--background));
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -112,118 +119,73 @@
 @layer utilities {
   .text-glow {
     text-shadow:
-      2px 2px 0 hsl(8 85% 40%),
-      -1px -1px 0 hsl(8 85% 40%),
-      1px -1px 0 hsl(8 85% 40%),
-      -1px 1px 0 hsl(8 85% 40%);
+      0 0 10px hsl(165 100% 50% / 0.8),
+      0 0 20px hsl(165 100% 50% / 0.5),
+      0 0 40px hsl(165 100% 50% / 0.3);
+  }
+
+  .text-glow-red {
+    text-shadow:
+      0 0 10px hsl(8 85% 55% / 0.8),
+      0 0 20px hsl(8 85% 55% / 0.5),
+      0 0 40px hsl(8 85% 55% / 0.3);
   }
 
   .text-outline {
     text-shadow:
-      3px 3px 0 hsl(25 45% 30%),
-      -2px -2px 0 hsl(25 45% 30%),
-      2px -2px 0 hsl(25 45% 30%),
-      -2px 2px 0 hsl(25 45% 30%);
+      3px 3px 0 hsl(160 30% 10%),
+      -2px -2px 0 hsl(160 30% 10%),
+      2px -2px 0 hsl(160 30% 10%),
+      -2px 2px 0 hsl(160 30% 10%);
   }
 
   .box-glow {
-    box-shadow: 0 4px 20px hsl(var(--primary) / 0.3);
+    box-shadow: 
+      0 0 20px hsl(165 100% 50% / 0.3),
+      0 0 40px hsl(165 100% 50% / 0.15);
+  }
+
+  .box-glow-red {
+    box-shadow: 
+      0 0 15px hsl(8 85% 55% / 0.4),
+      0 0 30px hsl(8 85% 55% / 0.2);
   }
 
   .retro-border {
-    border: 4px solid hsl(var(--secondary));
+    border: 2px solid hsl(165 100% 50% / 0.5);
     border-radius: 1rem;
     box-shadow:
-      6px 6px 0 hsl(30 40% 25%),
-      inset 0 2px 0 hsl(0 0% 100% / 0.1);
+      0 0 15px hsl(165 100% 50% / 0.2),
+      inset 0 1px 0 hsl(165 100% 50% / 0.1);
   }
 
-  .dirt-gradient {
+  .cosmic-gradient {
     background: linear-gradient(180deg,
-      hsl(var(--grass-light)) 0%,
-      hsl(var(--grass)) 40%,
-      hsl(var(--dirt)) 100%
+      hsl(160 35% 4%) 0%,
+      hsl(165 30% 8%) 50%,
+      hsl(160 25% 12%) 100%
     );
   }
 }
 
-/* Seed and plant animations */
-@keyframes seed-fall {
+/* Falling tomato animation */
+@keyframes tomato-fall {
   0% {
     transform: translateY(-100px) rotate(0deg);
     opacity: 0;
   }
-  10% {
-    opacity: 1;
-  }
-  30% {
-    transform: translateY(calc(100vh - 150px)) rotate(180deg);
-  }
-  35% {
-    transform: translateY(calc(100vh - 120px)) rotate(200deg) scale(0.8);
-  }
-  40%, 100% {
-    transform: translateY(calc(100vh - 100px)) rotate(0deg) scale(0);
-    opacity: 0;
-  }
-}
-
-@keyframes plant-grow {
-  0% {
-    height: 0;
-    opacity: 0;
-  }
-  20% {
-    height: 0;
-    opacity: 0;
-  }
-  40% {
-    opacity: 1;
-    height: 30px;
-  }
-  60% {
-    height: 60px;
-  }
-  80% {
-    height: 80px;
-  }
-  100% {
-    height: 100px;
-  }
-}
-
-@keyframes tomato-grow {
-  0%, 50% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  70% {
-    transform: scale(0.5);
+  5% {
     opacity: 1;
   }
   100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes leaf-sway {
-  0%, 100% {
-    transform: rotate(-10deg);
-  }
-  50% {
-    transform: rotate(10deg);
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.6;
   }
 }
 
 @keyframes bounce-tomato {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
-}
-
-@keyframes tumble {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
 
 @keyframes float {
@@ -237,16 +199,34 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { filter: drop-shadow(0 0 5px hsl(8 85% 55%)); }
-  50% { filter: drop-shadow(0 0 15px hsl(8 85% 55%)); }
+  0%, 100% { 
+    filter: drop-shadow(0 0 8px hsl(165 100% 50% / 0.6));
+  }
+  50% { 
+    filter: drop-shadow(0 0 20px hsl(165 100% 50% / 0.9));
+  }
+}
+
+@keyframes pulse-glow-red {
+  0%, 100% { 
+    filter: drop-shadow(0 0 5px hsl(8 85% 55% / 0.5));
+  }
+  50% { 
+    filter: drop-shadow(0 0 15px hsl(8 85% 55% / 0.8));
+  }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
 }
 
 .animate-bounce-tomato {
   animation: bounce-tomato 0.4s ease-in-out infinite;
 }
 
-.animate-tumble {
-  animation: tumble 1s linear infinite;
+.animate-tomato-fall {
+  animation: tomato-fall linear infinite;
 }
 
 .animate-float {
@@ -258,21 +238,9 @@
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 1.5s ease-in-out infinite;
+  animation: pulse-glow 2s ease-in-out infinite;
 }
 
-.animate-seed-fall {
-  animation: seed-fall 8s linear infinite;
-}
-
-.animate-plant-grow {
-  animation: plant-grow 8s ease-out infinite;
-}
-
-.animate-tomato-grow {
-  animation: tomato-grow 8s ease-out infinite;
-}
-
-.animate-leaf-sway {
-  animation: leaf-sway 2s ease-in-out infinite;
+.animate-pulse-glow-red {
+  animation: pulse-glow-red 1.5s ease-in-out infinite;
 }

@@ -25,24 +25,29 @@ export const HeroSection = () => {
       <div className="relative z-10 text-center max-w-4xl mx-auto w-full">
         {/* Hero emoji banner */}
         <div className="mb-4 sm:mb-8 relative">
-          <div className="text-6xl sm:text-9xl animate-float">
+          <div className="text-6xl sm:text-9xl animate-float animate-pulse-glow-red">
             🍅
           </div>
         </div>
 
         {/* Title */}
-        <h1 className="font-display text-4xl sm:text-7xl md:text-8xl font-bold text-accent text-outline mb-2 sm:mb-4">
-          $TOMATO
+        <h1 className="font-display text-4xl sm:text-7xl md:text-8xl font-bold text-primary text-glow mb-2 sm:mb-4">
+          $SOL
         </h1>
 
+        {/* Subtitle */}
+        <p className="font-display text-xl sm:text-3xl md:text-4xl text-accent text-glow-red mb-3 sm:mb-5">
+          The Trophy Tomato 🏆
+        </p>
+
         {/* Tagline */}
-        <p className="font-body text-lg sm:text-2xl md:text-3xl text-foreground mb-3 sm:mb-5">
-          Fresh from the garden, straight to the moon! 🚀
+        <p className="font-body text-lg sm:text-2xl text-foreground/90 mb-3 sm:mb-5">
+          Agentically grown by Claude AI Dev 🤖🌱
         </p>
 
         {/* Catchphrase */}
         <p className="font-body text-sm sm:text-lg text-muted-foreground italic mb-4 sm:mb-8">
-          &quot;Plant your seeds today, harvest tomatoes tomorrow!&quot; 🌱
+          &quot;The autonomous tomato plant, cultivated in the digital garden&quot;
         </p>
 
         {/* Buttons Section */}
@@ -87,7 +92,7 @@ export const HeroSection = () => {
           {/* Contract Address button */}
           <button
             onClick={copyCA}
-            className="flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 bg-card hover:bg-secondary/50 rounded-full border-2 border-dashed border-primary/40 hover:border-accent transition-all group"
+            className="flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 bg-card hover:bg-secondary/50 rounded-full border border-primary/40 hover:border-primary transition-all group box-glow"
           >
             <span className="text-xs sm:text-sm text-muted-foreground font-body">CA:</span>
             <code className="text-xs sm:text-sm font-mono text-foreground/80 truncate max-w-[180px] sm:max-w-none">
@@ -96,7 +101,7 @@ export const HeroSection = () => {
             {copied ? (
               <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
             ) : (
-              <Copy className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground group-hover:text-accent flex-shrink-0 transition-colors" />
+              <Copy className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground group-hover:text-primary flex-shrink-0 transition-colors" />
             )}
             <span className="text-xl sm:text-2xl">🍅</span>
           </button>
