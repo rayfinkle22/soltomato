@@ -1,97 +1,53 @@
 import { useEffect, useState } from "react";
 
-interface Seed {
+interface Tomato {
   id: number;
   x: number;
   delay: number;
   duration: number;
-  showPlant: boolean;
+  size: number;
 }
 
 export const GrowingSeeds = () => {
-  const [seeds, setSeeds] = useState<Seed[]>([]);
+  const [tomatoes, setTomatoes] = useState<Tomato[]>([]);
 
   useEffect(() => {
-    const generateSeeds = () => {
-      const newSeeds: Seed[] = [];
-      for (let i = 0; i < 15; i++) {
-        newSeeds.push({
+    const generateTomatoes = () => {
+      const newTomatoes: Tomato[] = [];
+      for (let i = 0; i < 20; i++) {
+        newTomatoes.push({
           id: i,
-          x: 5 + Math.random() * 90,
-          delay: Math.random() * 10,
-          duration: 8 + Math.random() * 4,
-          showPlant: Math.random() > 0.3,
+          x: Math.random() * 100,
+          delay: Math.random() * 15,
+          duration: 8 + Math.random() * 8,
+          size: 1.5 + Math.random() * 1.5,
         });
       }
-      setSeeds(newSeeds);
+      setTomatoes(newTomatoes);
     };
 
-    generateSeeds();
+    generateTomatoes();
   }, []);
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {/* Dirt ground at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-garden-dirt to-transparent" />
+      {/* Ambient glow effects */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
       
-      {seeds.map((seed) => (
+      {tomatoes.map((tomato) => (
         <div
-          key={seed.id}
-          className="absolute"
+          key={tomato.id}
+          className="absolute animate-tomato-fall"
           style={{
-            left: `${seed.x}%`,
+            left: `${tomato.x}%`,
             top: 0,
-            animationDelay: `${seed.delay}s`,
+            animationDelay: `${tomato.delay}s`,
+            animationDuration: `${tomato.duration}s`,
+            fontSize: `${tomato.size}rem`,
           }}
         >
-          {/* Falling seed */}
-          <div
-            className="animate-seed-fall text-2xl"
-            style={{
-              animationDelay: `${seed.delay}s`,
-              animationDuration: `${seed.duration}s`,
-            }}
-          >
-            🌰
-          </div>
-          
-          {/* Growing plant */}
-          {seed.showPlant && (
-            <div
-              className="absolute bottom-0"
-              style={{
-                left: 0,
-                bottom: '-100vh',
-                marginBottom: '60px',
-              }}
-            >
-              <div
-                className="flex flex-col items-center animate-plant-grow"
-                style={{
-                  animationDelay: `${seed.delay + seed.duration * 0.35}s`,
-                  animationDuration: `${seed.duration}s`,
-                }}
-              >
-                {/* Tomato */}
-                <div
-                  className="animate-tomato-grow text-3xl mb-1"
-                  style={{
-                    animationDelay: `${seed.delay + seed.duration * 0.6}s`,
-                    animationDuration: `${seed.duration}s`,
-                  }}
-                >
-                  🍅
-                </div>
-                {/* Leaves */}
-                <div className="flex gap-1 animate-leaf-sway">
-                  <span className="text-xl transform -rotate-45">🌿</span>
-                  <span className="text-xl transform rotate-45">🌿</span>
-                </div>
-                {/* Stem */}
-                <div className="w-1 h-8 bg-garden-stem rounded-full" />
-              </div>
-            </div>
-          )}
+          <span className="animate-pulse-glow-red inline-block">🍅</span>
         </div>
       ))}
     </div>
