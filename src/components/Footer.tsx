@@ -15,7 +15,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative z-10 border-t border-primary/20 py-12 mt-12 bg-background/80 backdrop-blur-sm overflow-hidden">
+    <footer className="relative z-10 border-t border-primary/20 py-12 mt-12 bg-background/80 backdrop-blur-sm overflow-hidden min-h-[300px]">
       {/* Animated background */}
       <FooterAnimation />
       

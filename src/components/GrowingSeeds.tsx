@@ -14,7 +14,7 @@ export const GrowingSeeds = () => {
   useEffect(() => {
     const generateTomatoes = () => {
       const newTomatoes: Tomato[] = [];
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 6; i++) {
         newTomatoes.push({
           id: i,
           x: Math.random() * 100,
