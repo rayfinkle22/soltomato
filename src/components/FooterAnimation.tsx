@@ -59,12 +59,12 @@ export const FooterAnimation = () => {
               className="text-xs font-mono"
               style={{
                 color: idx === 0 
-                  ? 'hsl(210, 100%, 70%)' 
+                  ? 'hsl(145, 100%, 70%)' 
                   : idx < 3 
-                    ? 'hsl(210, 100%, 55%)' 
-                    : 'hsl(210, 80%, 35%)',
+                    ? 'hsl(145, 100%, 50%)' 
+                    : 'hsl(145, 80%, 30%)',
                 textShadow: idx === 0 
-                  ? '0 0 10px hsl(210, 100%, 55%)' 
+                  ? '0 0 10px hsl(145, 100%, 50%)' 
                   : 'none',
                 opacity: 1 - (idx * 0.1),
               }}
