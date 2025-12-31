@@ -244,3 +244,43 @@
 .animate-pulse-glow-red {
   animation: pulse-glow-red 1.5s ease-in-out infinite;
 }
+
+/* Matrix rain animation for footer */
+@keyframes matrix-fall {
+  0% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0.3;
+  }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes data-pulse {
+  0%, 100% { 
+    opacity: 0.4;
+    transform: scaleY(0.8);
+  }
+  50% { 
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.animate-matrix-fall {
+  animation: matrix-fall linear infinite;
+}
+
+.animate-flicker {
+  animation: flicker 0.1s ease-in-out infinite;
+}
+
+.animate-data-pulse {
+  animation: data-pulse 1.5s ease-in-out infinite;
+}
