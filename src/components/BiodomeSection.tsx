@@ -52,8 +52,11 @@ export const BiodomeSection = () => {
           </div>
         </div>
 
-        {/* Link to site */}
+        {/* Disclaimer and Link */}
         <div className="mt-6 text-center">
+          <p className="font-body text-xs text-muted-foreground/60 mb-4">
+            ⚠️ We are not affiliated with Verdant Biodome or Auton Corp. This is a live embed of their public website.
+          </p>
           <a
             href="https://autoncorp.com/biodome/"
             target="_blank"
@@ -63,9 +66,6 @@ export const BiodomeSection = () => {
             <span className="font-display text-primary">Visit Full Biodome Dashboard</span>
             <ExternalLink className="w-4 h-4 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
-          <p className="mt-3 font-body text-xs text-muted-foreground">
-            Powered by Auton Corp • Verdant AI Autonomous Growing System
-          </p>
         </div>
       </div>
     </section>
