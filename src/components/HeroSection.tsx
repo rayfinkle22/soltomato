@@ -48,10 +48,6 @@ export const HeroSection = () => {
           Cultivated and managed by Claude 🤖🌱
         </p>
 
-        {/* Catchphrase */}
-        <p className="font-body text-sm sm:text-lg text-muted-foreground italic mb-4 sm:mb-8">
-          &quot;The autonomous tomato plant, cultivated in the digital garden&quot;
-        </p>
 
         {/* Buttons Section */}
         <div className="flex flex-col items-center gap-3 sm:gap-5">
