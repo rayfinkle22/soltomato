@@ -1,6 +1,30 @@
 import { ExternalLink } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 export const BiodomeSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  // These reflect the typical desktop layout size of the embedded dashboard.
+  const BASE_WIDTH = 1200;
+  const BASE_HEIGHT = 1800;
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const update = () => {
+      const width = el.clientWidth;
+      if (!width) return;
+      setScale(Math.min(1, width / BASE_WIDTH));
+    };
+
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   return (
     <section id="biodome" className="relative z-10 py-6 sm:py-10 px-4">
       <div className="max-w-6xl mx-auto">
@@ -41,16 +65,23 @@ export const BiodomeSection = () => {
               </div>
             </div>
 
-            {/* Iframe - scaled to fit container width on all devices */}
-            <div className="relative w-full" style={{ paddingBottom: '175%' }}>
-              <iframe
-                src="https://autoncorp.com/biodome/"
-                className="absolute top-0 left-0 w-[250%] h-[250%] border-0 origin-top-left scale-[0.4] sm:w-[166%] sm:h-[166%] sm:scale-[0.6] md:w-[125%] md:h-[125%] md:scale-[0.8] lg:w-full lg:h-full lg:scale-100"
-                style={{ minHeight: '1800px' }}
-                title="Verdant Biodome - Sol the Trophy Tomato Live Feed"
-                allow="autoplay; encrypted-media"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            {/* Iframe - keep the original stacked layout, but scale to fit container width */}
+            <div ref={containerRef} className="w-full overflow-hidden">
+              <div style={{ height: BASE_HEIGHT * scale }}>
+                <iframe
+                  src="https://autoncorp.com/biodome/"
+                  title="Verdant Biodome - Sol the Trophy Tomato Live Feed"
+                  allow="autoplay; encrypted-media"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  style={{
+                    width: BASE_WIDTH,
+                    height: BASE_HEIGHT,
+                    transform: `scale(${scale})`,
+                    transformOrigin: "top left",
+                    border: 0,
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
