@@ -22,7 +22,7 @@ export const DexChart = () => {
           <div className="grid grid-cols-3 gap-4">
             <div className="text-center">
               <p className="font-body text-sm text-muted-foreground mb-1">Market Cap</p>
-              <p className="font-display text-xl sm:text-2xl text-primary text-glow">
+              <p className="font-display text-xl sm:text-2xl text-foreground text-glow">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
                 ) : marketCap ? (
@@ -34,7 +34,7 @@ export const DexChart = () => {
             </div>
             <div className="text-center">
               <p className="font-body text-sm text-muted-foreground mb-1">24h Txns</p>
-              <p className="font-display text-xl sm:text-2xl text-primary text-glow">
+              <p className="font-display text-xl sm:text-2xl text-foreground text-glow">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
                 ) : totalTxns !== null ? (
@@ -46,7 +46,7 @@ export const DexChart = () => {
             </div>
             <div className="text-center">
               <p className="font-body text-sm text-muted-foreground mb-1">24h Change</p>
-              <p className="font-display text-xl sm:text-2xl text-primary text-glow">
+              <p className="font-display text-xl sm:text-2xl text-foreground text-glow">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
                 ) : priceChange24h !== null ? (
