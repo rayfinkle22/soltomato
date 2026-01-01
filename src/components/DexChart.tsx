@@ -3,8 +3,9 @@ import { useMarketData, formatMarketCap } from "@/hooks/useMarketData";
 const CONTRACT_ADDRESS = "jk1T35eWK41MBMM8AWoYVaNbjHEEQzMDetTsfnqpump";
 
 export const DexChart = () => {
-  const { marketCap, priceUsd, priceChange, isLoading } = useMarketData();
+  const { marketCap, txns24h, priceChange, isLoading } = useMarketData();
   const priceChange24h = priceChange.h24;
+  const totalTxns = txns24h ? txns24h.buys + txns24h.sells : null;
 
   return (
     <section id="chart" className="relative z-10 py-6 sm:py-8 px-4">
@@ -32,12 +33,12 @@ export const DexChart = () => {
               </p>
             </div>
             <div className="text-center">
-              <p className="font-body text-sm text-muted-foreground mb-1">Price</p>
+              <p className="font-body text-sm text-muted-foreground mb-1">24h Txns</p>
               <p className="font-display text-2xl sm:text-3xl text-accent text-glow-red">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
-                ) : priceUsd ? (
-                  `$${parseFloat(priceUsd).toFixed(8)}`
+                ) : totalTxns !== null ? (
+                  totalTxns.toLocaleString()
                 ) : (
                   "N/A"
                 )}
