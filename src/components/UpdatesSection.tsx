@@ -7,8 +7,8 @@ export const UpdatesSection = () => {
     <section id="updates" className="py-6 sm:py-10 px-4 relative">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
+        <div className="text-center mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-1">
             🌱 Project Updates
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

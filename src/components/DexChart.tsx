@@ -9,10 +9,10 @@ export const DexChart = () => {
   return (
     <section id="chart" className="relative z-10 py-6 sm:py-8 px-4">
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-display text-3xl sm:text-4xl text-center text-primary text-glow mb-2">
+        <h2 className="font-display text-3xl sm:text-4xl text-center text-primary text-glow mb-1">
           Live Chart 📈
         </h2>
-        <p className="font-body text-center text-muted-foreground mb-6">
+        <p className="font-body text-center text-muted-foreground mb-4">
           Track $SOL in real-time on Dexscreener
         </p>
 

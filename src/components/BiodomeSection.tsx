@@ -5,8 +5,8 @@ export const BiodomeSection = () => {
     <section id="biodome" className="relative z-10 py-6 sm:py-10 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center gap-3 mb-4">
+        <div className="text-center mb-4">
+          <div className="flex items-center justify-center gap-3 mb-1">
             <span className="text-3xl">🤖</span>
             <h2 className="font-display text-3xl sm:text-4xl text-primary text-glow">
               Live from the Biodome
