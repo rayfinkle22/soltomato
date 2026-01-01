@@ -39,8 +39,10 @@ export const HeroSection = () => {
         </h1>
 
         {/* Subtitle */}
-        <p className="font-display text-xl sm:text-3xl md:text-4xl text-foreground text-glow mb-2">
-          The Trophy Tomato 🏆
+        <p className="font-display text-xl sm:text-3xl md:text-4xl mb-2">
+          <span className="text-foreground text-glow">The Trophy </span>
+          <span className="text-accent text-glow-red">Tomato</span>
+          <span> 🏆</span>
         </p>
 
         {/* Tagline */}
