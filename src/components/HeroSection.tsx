@@ -34,17 +34,17 @@ export const HeroSection = () => {
         </div>
 
         {/* Title */}
-        <h1 className="font-display text-4xl sm:text-7xl md:text-8xl font-bold text-primary text-glow mb-2 sm:mb-4">
+        <h1 className="font-display text-4xl sm:text-7xl md:text-8xl font-bold text-primary text-glow mb-1">
           $SOL
         </h1>
 
         {/* Subtitle */}
-        <p className="font-display text-xl sm:text-3xl md:text-4xl text-accent text-glow-red mb-3 sm:mb-5">
+        <p className="font-display text-xl sm:text-3xl md:text-4xl text-accent text-glow-red mb-2">
           The Trophy Tomato 🏆
         </p>
 
         {/* Tagline */}
-        <p className="font-body text-lg sm:text-2xl text-foreground/90 mb-3 sm:mb-5">
+        <p className="font-body text-lg sm:text-2xl text-foreground/90 mb-4">
           Cultivated and managed by Claude 🤖🌱
         </p>
 
