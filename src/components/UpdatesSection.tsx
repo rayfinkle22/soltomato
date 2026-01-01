@@ -1,34 +1,7 @@
-import { useEffect, useRef } from "react";
 import { ExternalLink } from "lucide-react";
 
-declare global {
-  interface Window {
-    twttr: any;
-  }
-}
-
 export const UpdatesSection = () => {
-  const tweetRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Load Twitter widget script
-    const loadTwitterWidget = () => {
-      if (window.twttr && window.twttr.widgets) {
-        window.twttr.widgets.load(tweetRef.current);
-      }
-    };
-
-    if (window.twttr) {
-      loadTwitterWidget();
-    } else {
-      const script = document.createElement("script");
-      script.src = "https://platform.twitter.com/widgets.js";
-      script.async = true;
-      script.charset = "utf-8";
-      script.onload = loadTwitterWidget;
-      document.body.appendChild(script);
-    }
-  }, []);
+  const tweetId = "2006221407340867881";
 
   return (
     <section id="updates" className="py-16 sm:py-24 px-4 relative">
@@ -50,7 +23,7 @@ export const UpdatesSection = () => {
               Live Thread from @d33v33d0
             </h3>
             <a
-              href="https://x.com/d33v33d0/status/2006221407340867881"
+              href={`https://x.com/d33v33d0/status/${tweetId}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm"
@@ -59,17 +32,14 @@ export const UpdatesSection = () => {
             </a>
           </div>
 
-          {/* Embedded Tweet */}
-          <div ref={tweetRef} className="flex justify-center overflow-x-auto">
-            <blockquote 
-              className="twitter-tweet" 
-              data-theme="dark"
-              data-width="100%"
-            >
-              <a href="https://x.com/d33v33d0/status/2006221407340867881?ref_src=twsrc%5Etfw">
-                Loading tweet...
-              </a>
-            </blockquote>
+          {/* Embedded Tweet using Publish embed */}
+          <div className="flex justify-center">
+            <iframe
+              src={`https://platform.twitter.com/embed/Tweet.html?id=${tweetId}&theme=dark`}
+              className="w-full max-w-[550px] min-h-[400px] border-0 rounded-xl"
+              allowFullScreen
+              title="Tweet from @d33v33d0"
+            />
           </div>
 
           {/* Additional context */}
