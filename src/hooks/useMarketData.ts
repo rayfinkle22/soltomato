@@ -101,8 +101,11 @@ export const useMarketData = (): MarketData => {
     const listener = () => forceUpdate({});
     listeners.add(listener);
 
-    if (listeners.size === 1) {
-      fetchMarketData();
+    // Always fetch fresh data when a new listener subscribes
+    fetchMarketData();
+
+    // Set up interval if this is the first listener
+    if (listeners.size === 1 && !fetchInterval) {
       fetchInterval = setInterval(fetchMarketData, 30000);
     }
 
