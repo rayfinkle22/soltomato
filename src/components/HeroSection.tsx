@@ -39,7 +39,7 @@ export const HeroSection = () => {
         </h1>
 
         {/* Subtitle */}
-        <p className="font-display text-xl sm:text-3xl md:text-4xl text-accent text-glow-red mb-2">
+        <p className="font-display text-xl sm:text-3xl md:text-4xl text-foreground text-glow mb-2">
           The Trophy Tomato 🏆
         </p>
 
