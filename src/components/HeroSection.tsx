@@ -84,7 +84,7 @@ export const HeroSection = () => {
                 rel="noopener noreferrer"
               >
                 <span className="text-lg sm:text-2xl group-hover:animate-bounce">🚀</span>
-                <span className="font-display text-sm sm:text-base">Buy on Pump.fun</span>
+                <span className="font-display text-sm sm:text-base">Pump.fun</span>
                 <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 opacity-60" />
               </a>
             </Button>

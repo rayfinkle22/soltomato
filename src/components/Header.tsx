@@ -10,7 +10,7 @@ const navItems = [
   { id: "chart", label: "Chart", icon: ChartLine },
   { id: "updates", label: "Updates", icon: MessageSquare },
   { id: "biodome", label: "Biodome", icon: Leaf },
-  { id: "pumpfun", label: "Buy on Pump.fun", icon: Rocket, href: `https://pump.fun/coin/${CONTRACT_ADDRESS}` },
+  { id: "pumpfun", label: "Pump.fun", icon: Rocket, href: `https://pump.fun/coin/${CONTRACT_ADDRESS}` },
 ];
 
 export const Header = () => {
