@@ -24,7 +24,7 @@ export const Header = () => {
             </nav>
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="flex items-center gap-2 px-2 sm:px-3 py-1 rounded-lg bg-card/50 border border-primary/20">
+            <div className="flex items-center gap-2 px-2 sm:px-3 h-8 sm:h-9 rounded-md bg-card/50 border border-primary/20">
               <span className="font-body text-xs sm:text-sm text-muted-foreground">MCap:</span>
               <span className="font-display text-sm sm:text-lg text-primary text-glow">
                 {isLoading ? (
