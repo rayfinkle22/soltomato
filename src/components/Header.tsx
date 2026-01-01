@@ -47,8 +47,7 @@ export const Header = () => {
             </nav>
           </div>
           <div className="flex items-center gap-2">
-            <div className="flex items-center gap-2 px-2 sm:px-3 h-8 rounded-md bg-card/50 border border-primary/20">
-              <span className="font-body text-xs sm:text-sm text-muted-foreground">MCap:</span>
+            <div className="flex items-center px-2 sm:px-3 h-8 rounded-md bg-card/50 border border-primary/20">
               <span className="font-display text-sm sm:text-base text-primary text-glow">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
@@ -59,6 +58,19 @@ export const Header = () => {
                 )}
               </span>
             </div>
+
+            {/* X Community Button */}
+            <a
+              href="https://x.com/i/communities/2005766071333077200"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 rounded-md border border-primary/30 bg-primary/10 hover:bg-primary/20 text-primary flex items-center justify-center transition-all"
+              aria-label="X Community"
+            >
+              <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
 
             {/* Quick Nav Menu Button */}
             <div className="relative">
@@ -72,7 +84,7 @@ export const Header = () => {
 
               {/* Dropdown menu */}
               <div
-                className={`absolute top-10 right-0 flex flex-col gap-1 p-2 bg-card/95 backdrop-blur-sm border border-primary/30 rounded-lg transition-all duration-200 min-w-[120px] ${
+                className={`absolute top-10 right-0 z-50 flex flex-col gap-1 p-2 bg-card border border-primary/30 rounded-lg shadow-lg transition-all duration-200 min-w-[120px] ${
                   menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
                 }`}
               >
@@ -88,19 +100,6 @@ export const Header = () => {
                 ))}
               </div>
             </div>
-
-            {/* X Community Button */}
-            <a
-              href="https://x.com/i/communities/2005766071333077200"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-8 h-8 rounded-md border border-primary/30 bg-primary/10 hover:bg-primary/20 text-primary flex items-center justify-center transition-all"
-              aria-label="X Community"
-            >
-              <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>
           </div>
         </div>
       </div>
