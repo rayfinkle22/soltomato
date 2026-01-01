@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { GrowingSeeds } from "@/components/GrowingSeeds";
 import { BiodomeSection } from "@/components/BiodomeSection";
 import { UpdatesSection } from "@/components/UpdatesSection";
+import { FloatingNav } from "@/components/FloatingNav";
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
         <UpdatesSection />
         <BiodomeSection />
       </main>
+      <FloatingNav />
       <Footer />
     </div>
   );

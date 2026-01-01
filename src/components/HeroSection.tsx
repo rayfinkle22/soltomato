@@ -21,7 +21,7 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="relative flex flex-col items-center justify-center px-3 sm:px-4 py-8 sm:py-16 overflow-hidden">
+    <section id="hero" className="relative flex flex-col items-center justify-center px-3 sm:px-4 py-6 sm:py-10 overflow-hidden">
       {/* Main content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto w-full">
         {/* Hero banner image */}

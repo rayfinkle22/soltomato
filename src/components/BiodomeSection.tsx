@@ -2,7 +2,7 @@ import { ExternalLink } from "lucide-react";
 
 export const BiodomeSection = () => {
   return (
-    <section className="relative z-10 py-12 px-4">
+    <section id="biodome" className="relative z-10 py-6 sm:py-10 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-8">

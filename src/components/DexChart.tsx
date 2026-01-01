@@ -7,7 +7,7 @@ export const DexChart = () => {
   const priceChange24h = priceChange.h24;
 
   return (
-    <section className="relative z-10 py-8 sm:py-12 px-4">
+    <section id="chart" className="relative z-10 py-6 sm:py-8 px-4">
       <div className="max-w-3xl mx-auto">
         <h2 className="font-display text-3xl sm:text-4xl text-center text-primary text-glow mb-2">
           Live Chart 📈
