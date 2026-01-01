@@ -28,8 +28,8 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <span className="text-2xl sm:text-3xl animate-pulse-glow-red">🍅</span>
-              <span className="font-display text-xl sm:text-2xl font-bold text-primary text-glow">$SOL</span>
+              <span className="text-xl sm:text-2xl animate-pulse-glow-red">🍅</span>
+              <span className="font-display text-base sm:text-xl font-bold text-primary text-glow">$SOL the Trophy Tomato</span>
             </Link>
             <nav className="hidden sm:flex items-center gap-2">
               <Link
