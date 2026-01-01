@@ -25,11 +25,11 @@ export const HeroSection = () => {
       {/* Main content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto w-full">
         {/* Hero banner image */}
-        <div className="mb-4 sm:mb-8 relative">
+        <div className="mb-4 sm:mb-8 relative w-full">
           <img 
             src={tomatoBanner} 
             alt="Trophy Tomato Banner" 
-            className="w-48 sm:w-72 md:w-96 mx-auto animate-float drop-shadow-[0_0_30px_rgba(239,68,68,0.5)]"
+            className="w-full max-w-6xl mx-auto drop-shadow-[0_0_40px_rgba(239,68,68,0.6)]"
           />
         </div>
 
