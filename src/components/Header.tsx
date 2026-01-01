@@ -40,7 +40,7 @@ export const Header = () => {
               variant="outline"
               size="sm"
               asChild
-              className="border-primary/30 bg-primary/10 hover:bg-primary/20 text-primary"
+              className="border-primary/30 bg-primary/10 hover:bg-primary/20 text-primary h-8 sm:h-9"
             >
               <a
                 href="https://x.com/i/communities/2005766071333077200"
