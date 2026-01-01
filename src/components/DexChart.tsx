@@ -17,14 +17,14 @@ export const DexChart = () => {
           Track $SOL in real-time on Dexscreener
         </p>
 
-        {/* Market Cap Display */}
+        {/* Market Stats Display */}
         <div className="mb-6 p-4 rounded-2xl retro-border bg-card/50 backdrop-blur-sm">
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
+          <div className="grid grid-cols-3 gap-4">
             <div className="text-center">
               <p className="font-body text-sm text-muted-foreground mb-1">Market Cap</p>
-              <p className="font-display text-2xl sm:text-3xl text-primary text-glow">
+              <p className="font-display text-xl sm:text-2xl text-primary text-glow">
                 {isLoading ? (
-                  <span className="animate-pulse">Loading...</span>
+                  <span className="animate-pulse">...</span>
                 ) : marketCap ? (
                   formatMarketCap(marketCap)
                 ) : (
@@ -34,7 +34,7 @@ export const DexChart = () => {
             </div>
             <div className="text-center">
               <p className="font-body text-sm text-muted-foreground mb-1">24h Txns</p>
-              <p className="font-display text-2xl sm:text-3xl text-accent text-glow-red">
+              <p className="font-display text-xl sm:text-2xl text-primary text-glow">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
                 ) : totalTxns !== null ? (
@@ -44,14 +44,18 @@ export const DexChart = () => {
                 )}
               </p>
             </div>
-            {priceChange24h !== null && (
-              <div className="text-center">
-                <p className="font-body text-sm text-muted-foreground mb-1">24h Change</p>
-                <p className={`font-display text-2xl sm:text-3xl ${priceChange24h >= 0 ? 'text-primary' : 'text-destructive'}`}>
-                  {priceChange24h >= 0 ? '+' : ''}{priceChange24h.toFixed(2)}%
-                </p>
-              </div>
-            )}
+            <div className="text-center">
+              <p className="font-body text-sm text-muted-foreground mb-1">24h Change</p>
+              <p className="font-display text-xl sm:text-2xl text-primary text-glow">
+                {isLoading ? (
+                  <span className="animate-pulse">...</span>
+                ) : priceChange24h !== null ? (
+                  `${priceChange24h >= 0 ? '+' : ''}${priceChange24h.toFixed(2)}%`
+                ) : (
+                  "N/A"
+                )}
+              </p>
+            </div>
           </div>
         </div>
 
