@@ -58,8 +58,8 @@ export const DexChart = () => {
           <iframe
             src={`https://dexscreener.com/solana/${CONTRACT_ADDRESS}?embed=1&theme=dark&trades=0&info=0`}
             title="$SOL Trophy Tomato Dexscreener Chart"
-            className="w-full border-0"
-            style={{ height: 400 }}
+            className="w-full border-0 min-h-[300px] sm:min-h-[400px]"
+            style={{ height: "100%", maxHeight: 400 }}
           />
         </div>
 

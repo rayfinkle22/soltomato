@@ -21,6 +21,12 @@ export const Header = () => {
               >
                 Home
               </Link>
+              <a
+                href="#updates"
+                className="font-display text-sm px-3 py-1 rounded-lg transition-colors hover:bg-primary/10 text-muted-foreground hover:text-primary"
+              >
+                Updates
+              </a>
             </nav>
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
