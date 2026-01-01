@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Copy, Check, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
+import tomatoBanner from "@/assets/tomato-banner.gif";
 
 const CONTRACT_ADDRESS = "jk1T35eWK41MBMM8AWoYVaNbjHEEQzMDetTsfnqpump";
 
@@ -23,11 +24,13 @@ export const HeroSection = () => {
     <section className="relative flex flex-col items-center justify-center px-3 sm:px-4 py-8 sm:py-16 overflow-hidden">
       {/* Main content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto w-full">
-        {/* Hero emoji banner */}
+        {/* Hero banner image */}
         <div className="mb-4 sm:mb-8 relative">
-          <div className="text-6xl sm:text-9xl animate-float animate-pulse-glow-red">
-            🍅
-          </div>
+          <img 
+            src={tomatoBanner} 
+            alt="Trophy Tomato Banner" 
+            className="w-48 sm:w-72 md:w-96 mx-auto animate-float drop-shadow-[0_0_30px_rgba(239,68,68,0.5)]"
+          />
         </div>
 
         {/* Title */}
