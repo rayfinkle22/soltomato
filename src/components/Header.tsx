@@ -67,10 +67,10 @@ export const Header = () => {
               href="https://x.com/i/communities/2005766071333077200"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-8 h-8 rounded-md border border-primary/30 bg-primary/10 hover:bg-primary/20 text-primary flex items-center justify-center transition-all"
+              className="w-8 h-8 rounded-md border border-primary/30 bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-all"
               aria-label="X Community"
             >
-              <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+              <svg viewBox="0 0 24 24" className="w-4 h-4 fill-foreground drop-shadow-[0_0_4px_rgba(255,255,255,0.6)]">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
@@ -79,10 +79,14 @@ export const Header = () => {
             <div className="relative">
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="w-8 h-8 rounded-md border border-primary/30 bg-primary/10 hover:bg-primary/20 text-primary flex items-center justify-center transition-all"
+                className="w-8 h-8 rounded-md border border-primary/30 bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-all"
                 aria-label="Quick navigation"
               >
-                {menuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+                {menuOpen ? (
+                  <X className="w-4 h-4 text-foreground drop-shadow-[0_0_4px_rgba(255,255,255,0.6)]" />
+                ) : (
+                  <Menu className="w-4 h-4 text-foreground drop-shadow-[0_0_4px_rgba(255,255,255,0.6)]" />
+                )}
               </button>
 
               {/* Dropdown menu */}

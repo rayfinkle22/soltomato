@@ -41,14 +41,17 @@ export const BiodomeSection = () => {
               </div>
             </div>
 
-            {/* Iframe - full width, let external site handle its layout */}
-            <iframe
-              src="https://autoncorp.com/biodome/"
-              className="w-full h-[1400px] sm:h-[1600px] lg:h-[1800px] border-0"
-              title="Verdant Biodome - Sol the Trophy Tomato Live Feed"
-              allow="autoplay; encrypted-media"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            {/* Iframe - scaled to fit container width on all devices */}
+            <div className="relative w-full" style={{ paddingBottom: '175%' }}>
+              <iframe
+                src="https://autoncorp.com/biodome/"
+                className="absolute top-0 left-0 w-[250%] h-[250%] border-0 origin-top-left scale-[0.4] sm:w-[166%] sm:h-[166%] sm:scale-[0.6] md:w-[125%] md:h-[125%] md:scale-[0.8] lg:w-full lg:h-full lg:scale-100"
+                style={{ minHeight: '1800px' }}
+                title="Verdant Biodome - Sol the Trophy Tomato Live Feed"
+                allow="autoplay; encrypted-media"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
         </div>
 
