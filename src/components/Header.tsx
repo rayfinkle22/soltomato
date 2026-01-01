@@ -51,7 +51,7 @@ export const Header = () => {
           </div>
           <div className="flex items-center gap-2">
             <div className="flex items-center px-2 sm:px-3 h-8 rounded-md bg-card/50 border border-primary/20">
-              <span className="font-display text-sm sm:text-base text-primary text-glow">
+              <span className="font-display text-sm sm:text-base text-foreground text-glow">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
                 ) : marketCap ? (
