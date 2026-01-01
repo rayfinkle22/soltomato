@@ -19,8 +19,8 @@ export const GrowingSeeds = () => {
           id: i,
           x: Math.random() * 100,
           delay: Math.random() * 15,
-          duration: 8 + Math.random() * 8,
-          size: 1.5 + Math.random() * 1.5,
+          duration: 10 + Math.random() * 10,
+          size: 1 + Math.random() * 0.8,
         });
       }
       setTomatoes(newTomatoes);
@@ -38,16 +38,15 @@ export const GrowingSeeds = () => {
       {tomatoes.map((tomato) => (
         <div
           key={tomato.id}
-          className="absolute animate-tomato-fall"
+          className="fixed animate-tomato-fall opacity-60"
           style={{
             left: `${tomato.x}%`,
-            top: 0,
             animationDelay: `${tomato.delay}s`,
             animationDuration: `${tomato.duration}s`,
             fontSize: `${tomato.size}rem`,
           }}
         >
-          <span className="animate-pulse-glow-red inline-block">🍅</span>
+          <span className="inline-block">🍅</span>
         </div>
       ))}
     </div>
