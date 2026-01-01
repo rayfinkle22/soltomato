@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMarketData, formatMarketCap } from "@/hooks/useMarketData";
-import { Menu, X, ChartLine, MessageSquare, Leaf, Home } from "lucide-react";
+import { Menu, X, ChartLine, MessageSquare, Leaf, Home, Rocket } from "lucide-react";
+
+const CONTRACT_ADDRESS = "jk1T35eWK41MBMM8AWoYVaNbjHEEQzMDetTsfnqpump";
 
 const navItems = [
   { id: "hero", label: "Home", icon: Home },
   { id: "chart", label: "Chart", icon: ChartLine },
   { id: "updates", label: "Updates", icon: MessageSquare },
   { id: "biodome", label: "Biodome", icon: Leaf },
+  { id: "pumpfun", label: "Buy on Pump.fun", icon: Rocket, href: `https://pump.fun/coin/${CONTRACT_ADDRESS}` },
 ];
 
 export const Header = () => {
@@ -95,16 +98,30 @@ export const Header = () => {
                   menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
                 }`}
               >
-                {navItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-primary/20 transition-all text-left"
-                  >
-                    <item.icon className="w-4 h-4 text-primary" />
-                    <span className="font-body text-sm text-foreground">{item.label}</span>
-                  </button>
-                ))}
+                {navItems.map((item) => 
+                  item.href ? (
+                    <a
+                      key={item.id}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-primary/20 transition-all text-left"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      <item.icon className="w-4 h-4 text-primary" />
+                      <span className="font-body text-sm text-foreground">{item.label}</span>
+                    </a>
+                  ) : (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-primary/20 transition-all text-left"
+                    >
+                      <item.icon className="w-4 h-4 text-primary" />
+                      <span className="font-body text-sm text-foreground">{item.label}</span>
+                    </button>
+                  )
+                )}
               </div>
             </div>
           </div>

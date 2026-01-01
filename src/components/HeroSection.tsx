@@ -79,6 +79,23 @@ export const HeroSection = () => {
               className="group h-9 sm:h-12 px-4 sm:px-6"
             >
               <a
+                href={`https://pump.fun/coin/${CONTRACT_ADDRESS}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="text-lg sm:text-2xl group-hover:animate-bounce">🚀</span>
+                <span className="font-display text-sm sm:text-base">Buy on Pump.fun</span>
+                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 opacity-60" />
+              </a>
+            </Button>
+
+            <Button
+              variant="fun"
+              size="default"
+              asChild
+              className="group h-9 sm:h-12 px-4 sm:px-6"
+            >
+              <a
                 href="https://x.com/i/communities/2005766071333077200"
                 target="_blank"
                 rel="noopener noreferrer"
