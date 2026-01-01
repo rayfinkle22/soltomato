@@ -10,7 +10,7 @@ const Index = () => {
     <div className="min-h-screen bg-background flex flex-col relative">
       <GrowingSeeds />
       <Header />
-      <main className="flex-1 relative z-10">
+      <main className="flex-1 relative z-10 pt-14 sm:pt-16">
         <HeroSection />
         <DexChart />
         <BiodomeSection />
