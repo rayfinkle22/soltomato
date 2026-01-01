@@ -4,7 +4,7 @@ export const UpdatesSection = () => {
   const tweetId = "2006221407340867881";
 
   return (
-    <section id="updates" className="py-16 sm:py-24 px-4 relative">
+    <section id="updates" className="py-6 sm:py-10 px-4 relative">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
