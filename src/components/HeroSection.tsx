@@ -45,7 +45,7 @@ export const HeroSection = () => {
 
         {/* Tagline */}
         <p className="font-body text-lg sm:text-2xl text-foreground/90 mb-3 sm:mb-5">
-          Agentically grown by Claude AI Dev 🤖🌱
+          Cultivated and managed by Claude 🤖🌱
         </p>
 
         {/* Catchphrase */}
