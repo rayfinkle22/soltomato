@@ -32,15 +32,10 @@ export const Header = () => {
           <div className="flex items-center gap-4">
             <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <span className="text-xl sm:text-2xl animate-pulse-glow-red">🍅</span>
-              <div className="flex flex-col">
-                <span className="font-display text-base sm:text-xl font-bold">
-                  <span className="text-primary text-glow">$SOL</span>
-                  <span className="text-foreground text-glow ml-1">the Trophy Tomato</span>
-                </span>
-                <span className="font-body text-[10px] sm:text-xs text-muted-foreground leading-tight">
-                  The first documented case of AI tending to a living organism - cultivated and managed by Claude AI
-                </span>
-              </div>
+              <span className="font-display text-base sm:text-xl font-bold">
+                <span className="text-primary text-glow">$SOL</span>
+                <span className="text-foreground text-glow ml-1">the Trophy Tomato</span>
+              </span>
             </Link>
             <nav className="hidden sm:flex items-center gap-2">
               <Link

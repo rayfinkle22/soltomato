@@ -46,8 +46,8 @@ export const HeroSection = () => {
         </p>
 
         {/* Tagline */}
-        <p className="font-body text-lg sm:text-2xl text-foreground/90 mb-4">
-          Cultivated and managed by Claude 🤖🌱
+        <p className="font-body text-sm sm:text-lg text-foreground/90 mb-4 max-w-2xl mx-auto">
+          The first documented case of AI tending to a living organism - cultivated and managed by Claude AI
         </p>
 
 
