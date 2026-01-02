@@ -63,6 +63,10 @@ export const Footer = () => {
         <p className="font-body text-xs text-muted-foreground/60 max-w-md mx-auto mb-4">
           This is a meme token with no intrinsic value. Trade responsibly. Not financial advice.
         </p>
+
+        <p className="font-body text-xs text-muted-foreground/60 max-w-2xl mx-auto mb-4">
+          The AI-cultivated plant experiment is an independent scientific project. A community-created meme token was later inspired by the experiment and developed separately. The experiment itself is not affiliated with or operated by any token or cryptocurrency project.
+        </p>
         
         <div className="flex items-center justify-center gap-4 text-muted-foreground/50">
           <span className="font-body text-xs">© {currentYear} $SOL Trophy Tomato</span>
