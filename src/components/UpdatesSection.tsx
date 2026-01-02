@@ -14,6 +14,9 @@ export const UpdatesSection = () => {
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Follow along with the latest developments from the Biodome experiment
           </p>
+          <p className="text-xs text-muted-foreground/60 max-w-2xl mx-auto mt-2">
+            The AI-cultivated plant experiment is an independent scientific project. A community-created meme token was later inspired by the experiment and developed separately. The experiment itself is not affiliated with or operated by any token or cryptocurrency project.
+          </p>
         </div>
 
         {/* Tweet Embed Container */}
@@ -49,11 +52,6 @@ export const UpdatesSection = () => {
             </p>
           </div>
         </div>
-
-        {/* Disclaimer */}
-        <p className="text-xs text-muted-foreground/60 text-center mt-6 max-w-2xl mx-auto">
-          The AI-cultivated plant experiment is an independent scientific project. A community-created meme token was later inspired by the experiment and developed separately. The experiment itself is not affiliated with or operated by any token or cryptocurrency project.
-        </p>
       </div>
     </section>
   );
