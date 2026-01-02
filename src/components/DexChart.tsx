@@ -61,10 +61,11 @@ export const DexChart = () => {
 
         <div className="rounded-2xl retro-border overflow-hidden bg-card/50 backdrop-blur-sm">
           <iframe
-            src={`https://dexscreener.com/solana/${CONTRACT_ADDRESS}?embed=1&theme=dark&trades=0&info=0`}
+            src="https://dexscreener.com/solana/CcYbXbMHr2o9Vyz2wmJcRvi59wh42xkXf6qrzChbHPN5?embed=1&theme=dark&trades=0&info=0"
             title="$SOL Trophy Tomato Dexscreener Chart"
             className="w-full border-0 min-h-[300px] sm:min-h-[400px]"
             style={{ height: "100%", maxHeight: 400 }}
+            allow="clipboard-write"
           />
         </div>
 
