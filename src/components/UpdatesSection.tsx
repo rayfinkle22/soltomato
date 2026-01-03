@@ -39,7 +39,7 @@ export const UpdatesSection = () => {
           </div>
 
           {/* Embedded Tweets */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-10">
             {tweets.map((tweet) => (
               <div key={tweet.id} className="flex justify-center">
                 <iframe
