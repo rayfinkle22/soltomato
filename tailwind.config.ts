@@ -54,6 +54,7 @@ export default {
         // Fluorescent green theme colors
         "glow-green": "hsl(145 100% 50%)",
         "glow-cyan": "hsl(165 100% 50%)",
+        "deep-green": "hsl(var(--deep-green))",
         garden: {
           dirt: "hsl(var(--dirt))",
           grass: "hsl(var(--grass))",
