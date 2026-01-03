@@ -1,8 +1,11 @@
 import { ExternalLink } from "lucide-react";
 
-export const UpdatesSection = () => {
-  const tweetId = "2006221407340867881";
+const tweets = [
+  { id: "2007280874354864585", label: "Latest Update" },
+  { id: "2006221407340867881", label: "Initial Thread" },
+];
 
+export const UpdatesSection = () => {
   return (
     <section id="updates" className="py-6 sm:py-10 px-4 relative">
       <div className="max-w-4xl mx-auto">
@@ -26,7 +29,7 @@ export const UpdatesSection = () => {
               Live Thread from @d33v33d0
             </h3>
             <a
-              href={`https://x.com/d33v33d0/status/${tweetId}`}
+              href={`https://x.com/d33v33d0/status/${tweets[0].id}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm"
@@ -35,20 +38,24 @@ export const UpdatesSection = () => {
             </a>
           </div>
 
-          {/* Embedded Tweet using Publish embed */}
-          <div className="flex justify-center">
-            <iframe
-              src={`https://platform.twitter.com/embed/Tweet.html?id=${tweetId}&theme=dark`}
-              className="w-full max-w-[550px] min-h-[400px] border-0 rounded-xl"
-              allowFullScreen
-              title="Tweet from @d33v33d0"
-            />
+          {/* Embedded Tweets */}
+          <div className="flex flex-col gap-6">
+            {tweets.map((tweet) => (
+              <div key={tweet.id} className="flex justify-center">
+                <iframe
+                  src={`https://platform.twitter.com/embed/Tweet.html?id=${tweet.id}&theme=dark`}
+                  className="w-full max-w-[550px] min-h-[400px] border-0 rounded-xl"
+                  allowFullScreen
+                  title={`Tweet: ${tweet.label}`}
+                />
+              </div>
+            ))}
           </div>
 
           {/* Additional context */}
           <div className="mt-6 pt-6 border-t border-primary/10 text-center">
             <p className="text-sm text-muted-foreground">
-              Click the tweet to view the full thread and all replies
+              Click the tweets to view the full threads and all replies
             </p>
           </div>
         </div>
