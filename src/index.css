@@ -127,12 +127,11 @@
   }
 
   .text-glow-green {
-    color: hsl(160 45% 45%) !important;
+    color: hsl(145 80% 50%);
     text-shadow:
-      0 0 4px hsl(165 50% 55% / 0.9),
-      0 0 12px hsl(165 45% 60% / 0.7),
-      0 0 30px hsl(170 40% 65% / 0.5),
-      0 0 60px hsl(170 35% 70% / 0.25);
+      0 0 10px hsl(145 90% 55% / 0.9),
+      0 0 25px hsl(145 85% 50% / 0.7),
+      0 0 50px hsl(145 80% 45% / 0.5);
   }
 
   .text-glow-red {
