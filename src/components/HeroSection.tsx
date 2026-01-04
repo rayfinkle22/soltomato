@@ -34,7 +34,7 @@ export const HeroSection = () => {
         </div>
 
         {/* Title */}
-        <h1 className="font-display text-4xl sm:text-7xl md:text-8xl font-bold text-glow-green mb-1">
+        <h1 className="font-display text-4xl sm:text-7xl md:text-8xl font-bold text-primary text-glow mb-1">
           $SOL
         </h1>
 
