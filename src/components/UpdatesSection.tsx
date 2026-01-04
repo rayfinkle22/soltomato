@@ -1,7 +1,8 @@
 import { ExternalLink } from "lucide-react";
 
 const tweets = [
-  { id: "2007280874354864585", label: "Latest Update" },
+  { id: "2007656914772259128", label: "Latest Update" },
+  { id: "2007280874354864585", label: "Previous Update" },
   { id: "2006221407340867881", label: "Initial Thread" },
 ];
 
