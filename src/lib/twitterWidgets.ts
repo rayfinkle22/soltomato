@@ -86,6 +86,22 @@ export async function renderTweets(params: {
 
   const createTweet = window.twttr?.widgets.createTweet;
 
+  const renderAsLinkCard = (mount: HTMLElement, tweet: { id: string; author: string }) => {
+    mount.innerHTML = `
+      <a
+        href="https://x.com/i/status/${tweet.id}"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="display:block;text-decoration:none"
+      >
+        <div style="border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:14px 16px">
+          <div style="font-size:12px;opacity:0.8">Open on X</div>
+          <div style="font-size:14px;font-weight:600;word-break:break-word">@${tweet.author} · ${tweet.id}</div>
+        </div>
+      </a>
+    `;
+  };
+
   const renderAsBlockquote = (mount: HTMLElement, tweet: { id: string; author: string }) => {
     // Use /i/status/ to avoid username mismatches and handle renames.
     mount.innerHTML = `<blockquote class="twitter-tweet" data-theme="${theme}" data-conversation="${conversation}"><a href="https://x.com/i/status/${tweet.id}">View tweet</a></blockquote>`;
@@ -101,6 +117,17 @@ export async function renderTweets(params: {
     const result = await Promise.race([p, timeout]);
     if (t) window.clearTimeout(t);
     return result as T | null;
+  };
+
+  const fixIfNotFound = (mount: HTMLElement, tweet: { id: string; author: string }) => {
+    // Some embeds render a visible "Not found" message in the mount node.
+    // If that happens, replace the embed with a reliable link card.
+    window.setTimeout(() => {
+      const text = mount.textContent?.toLowerCase() ?? "";
+      if (text.includes("not found")) {
+        renderAsLinkCard(mount, tweet);
+      }
+    }, 2500);
   };
 
   if (createTweet) {
@@ -119,21 +146,24 @@ export async function renderTweets(params: {
       );
 
       if (!result) {
-        renderAsBlockquote(mount, tweet);
+        // If X widgets times out, use a link card instead of leaving it empty.
+        renderAsLinkCard(mount, tweet);
+        continue;
       }
+
+      fixIfNotFound(mount, tweet);
     }
 
     return true;
   }
 
-  // Fallback path using widgets.load
+  // No createTweet API available: render link cards so the section never looks empty.
   for (const tweet of tweets) {
     const mount = document.createElement("div");
     mount.className = "flex justify-center";
-    renderAsBlockquote(mount, tweet);
+    renderAsLinkCard(mount, tweet);
     container.appendChild(mount);
   }
 
-  window.twttr?.widgets.load(container);
   return true;
 }
