@@ -42,38 +42,46 @@ export const ShoutOutsSection = () => {
   }, []);
 
   return (
-    <section className="py-8 sm:py-12 px-4 bg-background/50">
+    <section className="py-6 sm:py-10 px-4 relative">
       <div className="max-w-4xl mx-auto">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-primary text-glow">
-            Shout Outs
+        {/* Section Header */}
+        <div className="text-center mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-1">
+            📣 Shout Outs
           </h2>
-          <a
-            href="https://x.com/TBC_on_X"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
-          >
-            <span>Follow @TBC_on_X</span>
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Community highlights and mentions
+          </p>
         </div>
 
-        <div ref={containerRef} className="flex flex-col gap-6">
-          {shoutOuts.map((shoutOut) => (
-            <div key={shoutOut.id} className="rounded-lg overflow-hidden">
-              <blockquote className="twitter-tweet" data-theme="dark" data-conversation="none">
-                <a href={`https://twitter.com/${shoutOut.author}/status/${shoutOut.id}`}>
-                  Loading...
-                </a>
-              </blockquote>
-            </div>
-          ))}
-        </div>
+        {/* Shout Out Container */}
+        <div className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-4 sm:p-8">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-lg sm:text-xl font-semibold text-foreground">
+              Featured Mentions
+            </h3>
+            <a
+              href="https://x.com/TBC_on_X"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm"
+            >
+              Follow @TBC_on_X <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
 
-        <p className="text-xs text-muted-foreground mt-4 text-center">
-          Community highlights and mentions
-        </p>
+          <div ref={containerRef} className="flex flex-col items-center gap-6">
+            {shoutOuts.map((shoutOut) => (
+              <div key={shoutOut.id} className="w-full flex justify-center">
+                <blockquote className="twitter-tweet" data-theme="dark" data-conversation="none">
+                  <a href={`https://twitter.com/${shoutOut.author}/status/${shoutOut.id}`}>
+                    Loading...
+                  </a>
+                </blockquote>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
