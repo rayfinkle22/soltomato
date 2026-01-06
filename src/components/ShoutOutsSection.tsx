@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { ExternalLink } from "lucide-react";
 
 declare global {
@@ -7,9 +7,73 @@ declare global {
       widgets: {
         load: (element?: HTMLElement) => void;
       };
-      ready: (callback: () => void) => void;
+      ready?: (callback: () => void) => void;
     };
+    __twitterWidgetsPromise?: Promise<void>;
   }
+}
+
+const TWITTER_WIDGETS_SRC = "https://platform.twitter.com/widgets.js";
+
+function ensureTwitterWidgets(): Promise<void> {
+  if (window.twttr?.widgets) return Promise.resolve();
+
+  if (window.__twitterWidgetsPromise) return window.__twitterWidgetsPromise;
+
+  window.__twitterWidgetsPromise = new Promise<void>((resolve, reject) => {
+    // X sometimes injects a hashed script (platform.twitter.com/js/tweet.*.js), so look broadly.
+    const existing = document.querySelector<HTMLScriptElement>(
+      'script[src^="https://platform.twitter.com/widgets.js"], script[src^="https://platform.twitter.com/js/tweet"]'
+    );
+
+    const waitForTwttr = () => {
+      if (window.twttr?.widgets) resolve();
+    };
+
+    if (existing) {
+      // Script is present (or was swapped by X); wait a tick for window.twttr.
+      window.setTimeout(waitForTwttr, 0);
+      // Also poll briefly in case twttr attaches slightly later.
+      let tries = 0;
+      const i = window.setInterval(() => {
+        tries += 1;
+        if (window.twttr?.widgets) {
+          window.clearInterval(i);
+          resolve();
+        } else if (tries >= 20) {
+          window.clearInterval(i);
+          reject(new Error("Twitter widgets script present but twttr not available"));
+        }
+      }, 150);
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = TWITTER_WIDGETS_SRC;
+    script.async = true;
+    script.charset = "utf-8";
+
+    script.onload = () => {
+      // twttr may attach after onload; poll briefly.
+      let tries = 0;
+      const i = window.setInterval(() => {
+        tries += 1;
+        if (window.twttr?.widgets) {
+          window.clearInterval(i);
+          resolve();
+        } else if (tries >= 20) {
+          window.clearInterval(i);
+          reject(new Error("Twitter widgets loaded but twttr not available"));
+        }
+      }, 150);
+    };
+
+    script.onerror = () => reject(new Error("Failed to load Twitter widgets script"));
+
+    document.head.appendChild(script);
+  });
+
+  return window.__twitterWidgetsPromise;
 }
 
 const shoutOuts = [
@@ -20,55 +84,39 @@ const shoutOuts = [
 
 export const ShoutOutsSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const loadWidgets = (attempt = 0) => {
-      if (!containerRef.current || !window.twttr?.widgets) return;
+    let cancelled = false;
+
+    const render = (attempt = 0) => {
+      if (cancelled || !containerRef.current || !window.twttr?.widgets) return;
 
       window.twttr.widgets.load(containerRef.current);
-      setIsLoaded(true);
 
-      // If X returns a temporary "Not found" state, a quick retry usually fixes it.
-      if (attempt < 2) {
+      if (attempt < 3) {
         window.setTimeout(() => {
-          const renderedEmbeds = containerRef.current?.querySelectorAll(
+          const rendered = containerRef.current?.querySelectorAll(
             "iframe.twitter-tweet-rendered"
           ).length;
-          if (!renderedEmbeds) loadWidgets(attempt + 1);
+          if (!rendered) render(attempt + 1);
         }, 900);
       }
     };
 
-    // Check if script already exists
-    const existingScript = document.querySelector('script[src="https://platform.twitter.com/widgets.js"]');
-    
-    if (existingScript) {
-      // Script already loaded, just reload widgets
-      if (window.twttr?.ready) {
-        window.twttr.ready(loadWidgets);
-      } else {
-        loadWidgets();
-      }
-      return;
-    }
+    ensureTwitterWidgets()
+      .then(() => {
+        if (cancelled) return;
+        // Prefer twttr.ready when available for more reliable playback.
+        if (window.twttr?.ready) window.twttr.ready(() => render(0));
+        else render(0);
+      })
+      .catch(() => {
+        // Keep the plain links visible if embeds are blocked.
+      });
 
-    // Create and load script
-    const script = document.createElement("script");
-    script.src = "https://platform.twitter.com/widgets.js";
-    script.async = true;
-    script.charset = "utf-8";
-    
-    script.onload = () => {
-      if (window.twttr?.ready) {
-        window.twttr.ready(loadWidgets);
-      } else {
-        // Fallback with small delay
-        setTimeout(loadWidgets, 500);
-      }
+    return () => {
+      cancelled = true;
     };
-
-    document.body.appendChild(script);
   }, []);
 
   return (
