@@ -3,9 +3,16 @@ import { ExternalLink } from "lucide-react";
 import { renderTweets } from "@/lib/twitterWidgets";
 
 const tweets = [
-  { id: "2007656914772259128", label: "Latest Update" },
-  { id: "2007280874354864585", label: "Previous Update" },
-  { id: "2006221407340867881", label: "Initial Thread" },
+  {
+    id: "2008337335495090233",
+    author: "TBC_on_X",
+    label: "Update 1",
+  },
+  {
+    id: "2008304020717277546",
+    author: "json1444",
+    label: "Update 2",
+  },
 ];
 
 export const UpdatesSection = () => {
@@ -55,10 +62,10 @@ export const UpdatesSection = () => {
         <div className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-4 sm:p-8">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg sm:text-xl font-semibold text-foreground">
-              Live Thread from @d33v33d0
+              Latest updates on X
             </h3>
             <a
-              href={`https://x.com/d33v33d0/status/${tweets[0].id}`}
+              href={`https://x.com/${tweets[0].author}/status/${tweets[0].id}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm"
@@ -72,12 +79,12 @@ export const UpdatesSection = () => {
               {tweets.map((t) => (
                 <a
                   key={t.id}
-                  href={`https://x.com/d33v33d0/status/${t.id}`}
+                  href={`https://x.com/${t.author}/status/${t.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block rounded-xl border border-border/50 bg-background/40 px-4 py-3 text-sm text-foreground hover:bg-background/60 transition-colors"
                 >
-                  {t.label}: {t.id}
+                  @{t.author}: {t.id}
                 </a>
               ))}
               <p className="text-xs text-muted-foreground/70">

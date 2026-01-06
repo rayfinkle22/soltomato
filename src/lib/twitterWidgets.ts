@@ -95,6 +95,24 @@ export async function renderTweets(params: {
       tick();
     });
 
+  const withTimeout = <T,>(promise: Promise<T>, label: string) =>
+    new Promise<T>((resolve, reject) => {
+      const t = window.setTimeout(() => {
+        reject(new Error(label));
+      }, timeoutMs);
+
+      promise.then(
+        (v) => {
+          window.clearTimeout(t);
+          resolve(v);
+        },
+        (e) => {
+          window.clearTimeout(t);
+          reject(e);
+        }
+      );
+    });
+
   // Prefer createTweet (most reliable); fallback to widgets.load on blockquotes.
   const createTweet = window.twttr?.widgets.createTweet;
 
@@ -106,12 +124,16 @@ export async function renderTweets(params: {
       mount.className = "flex justify-center";
       container.appendChild(mount);
 
-      await createTweet(id, mount, {
-        theme,
-        conversation,
-        align: "center",
-        dnt: true,
-      });
+      // createTweet can hang forever if X is blocked; enforce a hard timeout.
+      await withTimeout(
+        createTweet(id, mount, {
+          theme,
+          conversation,
+          align: "center",
+          dnt: true,
+        }) as Promise<unknown>,
+        "X embed render timed out"
+      );
     }
 
     await waitForEmbeds();
