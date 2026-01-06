@@ -1,82 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
-
-declare global {
-  interface Window {
-    twttr?: {
-      widgets: {
-        load: (element?: HTMLElement) => void;
-      };
-      ready?: (callback: () => void) => void;
-    };
-    __twitterWidgetsPromise?: Promise<void>;
-  }
-}
-
-const TWITTER_WIDGETS_SRC = "https://platform.twitter.com/widgets.js";
-
-function ensureTwitterWidgets(): Promise<void> {
-  if (window.twttr?.widgets) return Promise.resolve();
-
-  if (window.__twitterWidgetsPromise) return window.__twitterWidgetsPromise;
-
-  window.__twitterWidgetsPromise = new Promise<void>((resolve, reject) => {
-    // X sometimes injects a hashed script (platform.twitter.com/js/tweet.*.js), so look broadly.
-    const existing = document.querySelector<HTMLScriptElement>(
-      'script[src^="https://platform.twitter.com/widgets.js"], script[src^="https://platform.twitter.com/js/tweet"]'
-    );
-
-    const waitForTwttr = () => {
-      if (window.twttr?.widgets) resolve();
-    };
-
-    if (existing) {
-      // Script is present (or was swapped by X); wait a tick for window.twttr.
-      window.setTimeout(waitForTwttr, 0);
-      // Also poll briefly in case twttr attaches slightly later.
-      let tries = 0;
-      const i = window.setInterval(() => {
-        tries += 1;
-        if (window.twttr?.widgets) {
-          window.clearInterval(i);
-          resolve();
-        } else if (tries >= 20) {
-          window.clearInterval(i);
-          reject(new Error("Twitter widgets script present but twttr not available"));
-        }
-      }, 150);
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.src = TWITTER_WIDGETS_SRC;
-    script.async = true;
-    script.charset = "utf-8";
-
-    script.onload = () => {
-      // twttr may attach after onload; poll briefly.
-      let tries = 0;
-      const i = window.setInterval(() => {
-        tries += 1;
-        if (window.twttr?.widgets) {
-          window.clearInterval(i);
-          resolve();
-        } else if (tries >= 20) {
-          window.clearInterval(i);
-          reject(new Error("Twitter widgets loaded but twttr not available"));
-        }
-      }, 150);
-    };
-
-    script.onerror = () => reject(new Error("Failed to load Twitter widgets script"));
-
-    document.head.appendChild(script);
-  });
-
-  return window.__twitterWidgetsPromise;
-}
+import { renderTweets } from "@/lib/twitterWidgets";
 
 const shoutOuts = [
+  // Top (newest)
   { id: "2008422258017268025", author: "d33v33d0" },
   { id: "2008337335495090233", author: "TBC_on_X" },
   { id: "2008304020717277546", author: "json1444" },
@@ -84,35 +11,25 @@ const shoutOuts = [
 
 export const ShoutOutsSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [embedFailed, setEmbedFailed] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
 
-    const render = (attempt = 0) => {
-      if (cancelled || !containerRef.current || !window.twttr?.widgets) return;
+    (async () => {
+      if (!containerRef.current) return;
 
-      window.twttr.widgets.load(containerRef.current);
-
-      if (attempt < 3) {
-        window.setTimeout(() => {
-          const rendered = containerRef.current?.querySelectorAll(
-            "iframe.twitter-tweet-rendered"
-          ).length;
-          if (!rendered) render(attempt + 1);
-        }, 900);
+      try {
+        await renderTweets({
+          container: containerRef.current,
+          tweetIds: shoutOuts.map((s) => s.id),
+          theme: "dark",
+          conversation: "none",
+        });
+      } catch {
+        if (!cancelled) setEmbedFailed(true);
       }
-    };
-
-    ensureTwitterWidgets()
-      .then(() => {
-        if (cancelled) return;
-        // Prefer twttr.ready when available for more reliable playback.
-        if (window.twttr?.ready) window.twttr.ready(() => render(0));
-        else render(0);
-      })
-      .catch(() => {
-        // Keep the plain links visible if embeds are blocked.
-      });
+    })();
 
     return () => {
       cancelled = true;
@@ -148,19 +65,26 @@ export const ShoutOutsSection = () => {
             </a>
           </div>
 
-          <div ref={containerRef} className="flex flex-col items-center gap-6">
-            {shoutOuts.map((shoutOut) => (
-              <div key={shoutOut.id} className="w-full flex justify-center">
-                <blockquote
-                  className="twitter-tweet"
-                  data-theme="dark"
-                  data-conversation="none"
+          {embedFailed ? (
+            <div className="space-y-3">
+              {shoutOuts.map((s) => (
+                <a
+                  key={s.id}
+                  href={`https://x.com/${s.author}/status/${s.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-xl border border-border/50 bg-background/40 px-4 py-3 text-sm text-foreground hover:bg-background/60 transition-colors"
                 >
-                  <a href={`https://x.com/${shoutOut.author}/status/${shoutOut.id}`}>Loading…</a>
-                </blockquote>
-              </div>
-            ))}
-          </div>
+                  View on X: @{s.author} / {s.id}
+                </a>
+              ))}
+              <p className="text-xs text-muted-foreground/70">
+                If you’re using an ad/tracker blocker, it may prevent embeds from loading.
+              </p>
+            </div>
+          ) : (
+            <div ref={containerRef} className="flex flex-col items-center gap-6" />
+          )}
         </div>
       </div>
     </section>

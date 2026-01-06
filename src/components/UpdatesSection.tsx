@@ -1,4 +1,6 @@
+import { useEffect, useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
+import { renderTweets } from "@/lib/twitterWidgets";
 
 const tweets = [
   { id: "2007656914772259128", label: "Latest Update" },
@@ -7,6 +9,32 @@ const tweets = [
 ];
 
 export const UpdatesSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [embedFailed, setEmbedFailed] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    (async () => {
+      if (!containerRef.current) return;
+
+      try {
+        await renderTweets({
+          container: containerRef.current,
+          tweetIds: tweets.map((t) => t.id),
+          theme: "dark",
+          conversation: "none",
+        });
+      } catch {
+        if (!cancelled) setEmbedFailed(true);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <section id="updates" className="py-6 sm:py-10 px-4 relative">
       <div className="max-w-4xl mx-auto">
@@ -39,19 +67,26 @@ export const UpdatesSection = () => {
             </a>
           </div>
 
-          {/* Embedded Tweets */}
-          <div className="flex flex-col gap-10">
-            {tweets.map((tweet) => (
-              <div key={tweet.id} className="flex justify-center">
-                <iframe
-                  src={`https://platform.twitter.com/embed/Tweet.html?id=${tweet.id}&theme=dark`}
-                  className="w-full max-w-[550px] min-h-[400px] border-0 rounded-xl"
-                  allowFullScreen
-                  title={`Tweet: ${tweet.label}`}
-                />
-              </div>
-            ))}
-          </div>
+          {embedFailed ? (
+            <div className="space-y-3">
+              {tweets.map((t) => (
+                <a
+                  key={t.id}
+                  href={`https://x.com/d33v33d0/status/${t.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-xl border border-border/50 bg-background/40 px-4 py-3 text-sm text-foreground hover:bg-background/60 transition-colors"
+                >
+                  {t.label}: {t.id}
+                </a>
+              ))}
+              <p className="text-xs text-muted-foreground/70">
+                If embeds are blocked in your browser, the links above will always work.
+              </p>
+            </div>
+          ) : (
+            <div ref={containerRef} className="flex flex-col gap-10" />
+          )}
 
           {/* Additional context */}
           <div className="mt-6 pt-6 border-t border-primary/10 text-center">
