@@ -85,7 +85,22 @@ export const UpdatesSection = () => {
               </p>
             </div>
           ) : (
-            <div ref={containerRef} className="flex flex-col gap-10" />
+            <>
+              <div ref={containerRef} className="flex flex-col gap-10" />
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                {tweets.map((t) => (
+                  <a
+                    key={t.id}
+                    href={`https://x.com/i/status/${t.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block rounded-xl border border-border/50 bg-background/40 px-4 py-3 text-sm text-foreground hover:bg-background/60 transition-colors"
+                  >
+                    View on X: @{t.author}
+                  </a>
+                ))}
+              </div>
+            </>
           )}
 
           {/* Additional context */}
