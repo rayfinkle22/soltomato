@@ -34,9 +34,9 @@ export const ShoutOutsSection = () => {
           {/* Video */}
           <div className="flex flex-col items-center gap-4">
             <video
-              src={shoutoutVideo}
+              src={`${shoutoutVideo}#t=0.1`}
               controls
-              preload="metadata"
+              preload="auto"
               className="w-full max-w-lg rounded-xl border border-border/50"
               playsInline
             />
