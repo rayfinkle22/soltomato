@@ -1,39 +1,7 @@
-import { useEffect, useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
-import { renderTweets } from "@/lib/twitterWidgets";
-
-const shoutOuts = [
-  { id: "2008337335495090233", author: "tbc_on_x" },
-  { id: "2008304020717277546", author: "json1444" },
-];
+import shoutoutVideo from "@/assets/shoutout-video.mp4";
 
 export const ShoutOutsSection = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [embedFailed, setEmbedFailed] = useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    (async () => {
-      if (!containerRef.current) return;
-
-      try {
-        await renderTweets({
-          container: containerRef.current,
-          tweetIds: shoutOuts.map((s) => ({ id: s.id, author: s.author })),
-          theme: "dark",
-          conversation: "none",
-        });
-      } catch {
-        if (!cancelled) setEmbedFailed(true);
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
   return (
     <section className="py-6 sm:py-10 px-4 relative">
       <div className="max-w-4xl mx-auto">
@@ -63,44 +31,25 @@ export const ShoutOutsSection = () => {
             </a>
           </div>
 
-          {embedFailed ? (
-            <div className="space-y-3">
-              {shoutOuts.map((s) => (
-                <a
-                  key={s.id}
-                  href={`https://x.com/i/status/${s.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block rounded-xl border border-border/50 bg-background/40 px-4 py-3 text-sm text-foreground hover:bg-background/60 transition-colors"
-                >
-                  View on X: @{s.author} / {s.id}
-                </a>
-              ))}
-              <p className="text-xs text-muted-foreground/70">
-                If you’re using an ad/tracker blocker, it may prevent embeds from loading.
-              </p>
-            </div>
-          ) : (
-            <>
-              <div
-                ref={containerRef}
-                className="flex flex-col items-center gap-6"
-              />
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                {shoutOuts.map((s) => (
-                  <a
-                    key={s.id}
-                    href={`https://x.com/i/status/${s.id}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block rounded-xl border border-border/50 bg-background/40 px-4 py-3 text-sm text-foreground hover:bg-background/60 transition-colors"
-                  >
-                    View on X: @{s.author}
-                  </a>
-                ))}
-              </div>
-            </>
-          )}
+          {/* Video */}
+          <div className="flex flex-col items-center gap-4">
+            <video
+              src={shoutoutVideo}
+              controls
+              className="w-full max-w-lg rounded-xl border border-border/50"
+              playsInline
+            />
+            
+            {/* Link to tweet */}
+            <a
+              href="https://x.com/tbc_on_x/status/2008337335495090233"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-xl border border-border/50 bg-background/40 px-4 py-3 text-sm text-foreground hover:bg-background/60 transition-colors"
+            >
+              View on X: @tbc_on_x <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
         </div>
       </div>
     </section>
