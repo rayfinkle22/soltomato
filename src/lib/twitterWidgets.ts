@@ -76,15 +76,28 @@ export async function renderTweets(params: {
     timeoutMs = 15000,
   } = params;
 
-  await ensureTwitterWidgets();
-
   container.innerHTML = "";
+
+  // Try to load X widgets, but never block rendering forever (ad blockers can stall script loads).
+  const widgetsReady = await (async () => {
+    try {
+      await Promise.race([
+        ensureTwitterWidgets(),
+        new Promise<void>((_, reject) =>
+          window.setTimeout(() => reject(new Error("X widgets load timeout")), timeoutMs)
+        ),
+      ]);
+      return true;
+    } catch {
+      return false;
+    }
+  })();
 
   const tweets = tweetIds.map((t) =>
     typeof t === "string" ? { id: t, author: "i" } : t
   );
 
-  const createTweet = window.twttr?.widgets.createTweet;
+  const createTweet = widgetsReady ? window.twttr?.widgets.createTweet : undefined;
 
   const renderAsLinkCard = (mount: HTMLElement, tweet: { id: string; author: string }) => {
     mount.innerHTML = `
