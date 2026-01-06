@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { GrowingSeeds } from "@/components/GrowingSeeds";
 import { BiodomeSection } from "@/components/BiodomeSection";
 import { UpdatesSection } from "@/components/UpdatesSection";
+import { ShoutOutsSection } from "@/components/ShoutOutsSection";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <main className="flex-1 relative z-10 pt-14 sm:pt-16">
         <HeroSection />
         <DexChart />
+        <ShoutOutsSection />
         <UpdatesSection />
         <BiodomeSection />
       </main>
