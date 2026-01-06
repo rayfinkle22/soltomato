@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
 
 declare global {
@@ -7,6 +7,7 @@ declare global {
       widgets: {
         load: (element?: HTMLElement) => void;
       };
+      ready: (callback: () => void) => void;
     };
   }
 }
@@ -18,28 +19,45 @@ const shoutOuts = [
 
 export const ShoutOutsSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Load Twitter widget script
+    const loadWidgets = () => {
+      if (window.twttr?.widgets && containerRef.current) {
+        window.twttr.widgets.load(containerRef.current);
+        setIsLoaded(true);
+      }
+    };
+
+    // Check if script already exists
+    const existingScript = document.querySelector('script[src="https://platform.twitter.com/widgets.js"]');
+    
+    if (existingScript) {
+      // Script already loaded, just reload widgets
+      if (window.twttr?.ready) {
+        window.twttr.ready(loadWidgets);
+      } else {
+        loadWidgets();
+      }
+      return;
+    }
+
+    // Create and load script
     const script = document.createElement("script");
     script.src = "https://platform.twitter.com/widgets.js";
     script.async = true;
     script.charset = "utf-8";
-    document.body.appendChild(script);
-
+    
     script.onload = () => {
-      if (window.twttr && containerRef.current) {
-        window.twttr.widgets.load(containerRef.current);
+      if (window.twttr?.ready) {
+        window.twttr.ready(loadWidgets);
+      } else {
+        // Fallback with small delay
+        setTimeout(loadWidgets, 500);
       }
     };
 
-    return () => {
-      // Cleanup script on unmount
-      const existingScript = document.querySelector('script[src="https://platform.twitter.com/widgets.js"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
+    document.body.appendChild(script);
   }, []);
 
   return (
