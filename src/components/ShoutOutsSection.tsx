@@ -68,7 +68,7 @@ export const ShoutOutsSection = () => {
               {shoutOuts.map((s) => (
                 <a
                   key={s.id}
-                  href={`https://x.com/${s.author}/status/${s.id}`}
+                  href={`https://x.com/i/status/${s.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block rounded-xl border border-border/50 bg-background/40 px-4 py-3 text-sm text-foreground hover:bg-background/60 transition-colors"
@@ -81,7 +81,25 @@ export const ShoutOutsSection = () => {
               </p>
             </div>
           ) : (
-            <div ref={containerRef} className="flex flex-col items-center gap-6" />
+            <>
+              <div
+                ref={containerRef}
+                className="flex flex-col items-center gap-6"
+              />
+              <div className="mt-4 flex flex-wrap justify-center gap-2">
+                {shoutOuts.map((s) => (
+                  <a
+                    key={s.id}
+                    href={`https://x.com/i/status/${s.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-primary hover:text-primary/80 transition-colors"
+                  >
+                    Open @{s.author}
+                  </a>
+                ))}
+              </div>
+            </>
           )}
         </div>
       </div>

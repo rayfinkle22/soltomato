@@ -87,7 +87,8 @@ export async function renderTweets(params: {
   const createTweet = window.twttr?.widgets.createTweet;
 
   const renderAsBlockquote = (mount: HTMLElement, tweet: { id: string; author: string }) => {
-    mount.innerHTML = `<blockquote class="twitter-tweet" data-theme="${theme}" data-conversation="${conversation}"><a href="https://x.com/${tweet.author}/status/${tweet.id}">View tweet</a></blockquote>`;
+    // Use /i/status/ to avoid username mismatches and handle renames.
+    mount.innerHTML = `<blockquote class="twitter-tweet" data-theme="${theme}" data-conversation="${conversation}"><a href="https://x.com/i/status/${tweet.id}">View tweet</a></blockquote>`;
     window.twttr?.widgets.load(mount);
   };
 
