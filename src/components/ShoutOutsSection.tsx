@@ -36,6 +36,7 @@ export const ShoutOutsSection = () => {
             <video
               src={shoutoutVideo}
               controls
+              preload="metadata"
               className="w-full max-w-lg rounded-xl border border-border/50"
               playsInline
             />
