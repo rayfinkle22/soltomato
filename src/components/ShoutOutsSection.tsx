@@ -3,7 +3,6 @@ import { ExternalLink } from "lucide-react";
 import { renderTweets } from "@/lib/twitterWidgets";
 
 const shoutOuts = [
-  { id: "2008337335495090233", author: "tbc_on_x" },
   { id: "2008304020717277546", author: "json1444" },
 ];
 
