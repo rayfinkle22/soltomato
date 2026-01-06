@@ -73,47 +73,11 @@ export async function renderTweets(params: {
     tweetIds,
     theme = "dark",
     conversation = "none",
-    timeoutMs = 6500,
+    timeoutMs = 15000,
   } = params;
 
   await ensureTwitterWidgets();
 
-  const waitForEmbeds = () =>
-    new Promise<void>((resolve, reject) => {
-      const start = Date.now();
-      const tick = () => {
-        const rendered = container.querySelectorAll(
-          "iframe.twitter-tweet-rendered"
-        ).length;
-
-        if (rendered >= Math.max(1, tweetIds.length)) return resolve();
-        if (Date.now() - start > timeoutMs)
-          return reject(new Error("X embeds timed out"));
-
-        window.setTimeout(tick, 250);
-      };
-      tick();
-    });
-
-  const withTimeout = <T,>(promise: Promise<T>, label: string) =>
-    new Promise<T>((resolve, reject) => {
-      const t = window.setTimeout(() => {
-        reject(new Error(label));
-      }, timeoutMs);
-
-      promise.then(
-        (v) => {
-          window.clearTimeout(t);
-          resolve(v);
-        },
-        (e) => {
-          window.clearTimeout(t);
-          reject(e);
-        }
-      );
-    });
-
-  // Prefer createTweet (most reliable); fallback to widgets.load on blockquotes.
   const createTweet = window.twttr?.widgets.createTweet;
 
   container.innerHTML = "";
@@ -124,19 +88,13 @@ export async function renderTweets(params: {
       mount.className = "flex justify-center";
       container.appendChild(mount);
 
-      // createTweet can hang forever if X is blocked; enforce a hard timeout.
-      await withTimeout(
-        createTweet(id, mount, {
-          theme,
-          conversation,
-          align: "center",
-          dnt: true,
-        }) as Promise<unknown>,
-        "X embed render timed out"
-      );
+      await createTweet(id, mount, {
+        theme,
+        conversation,
+        align: "center",
+        dnt: true,
+      });
     }
-
-    await waitForEmbeds();
     return true;
   }
 
