@@ -13,6 +13,7 @@ declare global {
 }
 
 const shoutOuts = [
+  { id: "2008422258017268025", author: "d33v33d0" },
   { id: "2008337335495090233", author: "TBC_on_X" },
   { id: "2008304020717277546", author: "json1444" },
 ];
@@ -22,10 +23,20 @@ export const ShoutOutsSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const loadWidgets = () => {
-      if (window.twttr?.widgets && containerRef.current) {
-        window.twttr.widgets.load(containerRef.current);
-        setIsLoaded(true);
+    const loadWidgets = (attempt = 0) => {
+      if (!containerRef.current || !window.twttr?.widgets) return;
+
+      window.twttr.widgets.load(containerRef.current);
+      setIsLoaded(true);
+
+      // If X returns a temporary "Not found" state, a quick retry usually fixes it.
+      if (attempt < 2) {
+        window.setTimeout(() => {
+          const renderedEmbeds = containerRef.current?.querySelectorAll(
+            "iframe.twitter-tweet-rendered"
+          ).length;
+          if (!renderedEmbeds) loadWidgets(attempt + 1);
+        }, 900);
       }
     };
 
@@ -92,10 +103,12 @@ export const ShoutOutsSection = () => {
           <div ref={containerRef} className="flex flex-col items-center gap-6">
             {shoutOuts.map((shoutOut) => (
               <div key={shoutOut.id} className="w-full flex justify-center">
-                <blockquote className="twitter-tweet" data-theme="dark" data-conversation="none">
-                  <a href={`https://twitter.com/${shoutOut.author}/status/${shoutOut.id}`}>
-                    Loading...
-                  </a>
+                <blockquote
+                  className="twitter-tweet"
+                  data-theme="dark"
+                  data-conversation="none"
+                >
+                  <a href={`https://x.com/${shoutOut.author}/status/${shoutOut.id}`}>Loading…</a>
                 </blockquote>
               </div>
             ))}
