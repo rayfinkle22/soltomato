@@ -13,6 +13,7 @@ declare global {
 
 const shoutOuts = [
   { id: "2008337335495090233", author: "TBC_on_X" },
+  { id: "2008304020717277546", author: "json1444" },
 ];
 
 export const ShoutOutsSection = () => {
