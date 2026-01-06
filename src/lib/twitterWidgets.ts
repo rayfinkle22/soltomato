@@ -98,7 +98,7 @@ export async function renderTweets(params: {
     return true;
   }
 
-  // Fallback path
+  // Fallback path using widgets.load
   for (const id of tweetIds) {
     const mount = document.createElement("div");
     mount.className = "flex justify-center";
@@ -107,6 +107,5 @@ export async function renderTweets(params: {
   }
 
   window.twttr?.widgets.load(container);
-  await waitForEmbeds();
   return true;
 }
