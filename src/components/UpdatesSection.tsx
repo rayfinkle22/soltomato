@@ -21,7 +21,7 @@ export const UpdatesSection = () => {
       try {
         await renderTweets({
           container: containerRef.current,
-          tweetIds: tweets.map((t) => t.id),
+          tweetIds: tweets.map((t) => ({ id: t.id, author: t.author })),
           theme: "dark",
           conversation: "none",
         });

@@ -20,7 +20,7 @@ export const ShoutOutsSection = () => {
       try {
         await renderTweets({
           container: containerRef.current,
-          tweetIds: shoutOuts.map((s) => s.id),
+          tweetIds: shoutOuts.map((s) => ({ id: s.id, author: s.author })),
           theme: "dark",
           conversation: "none",
         });

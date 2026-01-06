@@ -63,7 +63,7 @@ export function ensureTwitterWidgets(): Promise<void> {
 
 export async function renderTweets(params: {
   container: HTMLElement;
-  tweetIds: string[];
+  tweetIds: { id: string; author: string }[] | string[];
   theme?: TwitterTheme;
   conversation?: "none" | "all";
   timeoutMs?: number;
@@ -73,36 +73,46 @@ export async function renderTweets(params: {
     tweetIds,
     theme = "dark",
     conversation = "none",
-    timeoutMs = 15000,
   } = params;
 
   await ensureTwitterWidgets();
 
-  const createTweet = window.twttr?.widgets.createTweet;
-
   container.innerHTML = "";
 
+  // Normalize to array of objects
+  const tweets = tweetIds.map((t) =>
+    typeof t === "string" ? { id: t, author: "i" } : t
+  );
+
+  const createTweet = window.twttr?.widgets.createTweet;
+
   if (createTweet) {
-    for (const id of tweetIds) {
+    for (const tweet of tweets) {
       const mount = document.createElement("div");
       mount.className = "flex justify-center";
       container.appendChild(mount);
 
-      await createTweet(id, mount, {
+      const result = await createTweet(tweet.id, mount, {
         theme,
         conversation,
         align: "center",
         dnt: true,
       });
+
+      // If createTweet returns null/undefined, the tweet wasn't found - use blockquote fallback
+      if (!result) {
+        mount.innerHTML = `<blockquote class="twitter-tweet" data-theme="${theme}" data-conversation="${conversation}"><a href="https://x.com/${tweet.author}/status/${tweet.id}">Loading tweet...</a></blockquote>`;
+        window.twttr?.widgets.load(mount);
+      }
     }
     return true;
   }
 
   // Fallback path using widgets.load
-  for (const id of tweetIds) {
+  for (const tweet of tweets) {
     const mount = document.createElement("div");
     mount.className = "flex justify-center";
-    mount.innerHTML = `<blockquote class="twitter-tweet" data-theme="${theme}" data-conversation="${conversation}"><a href="https://x.com/i/status/${id}">Loading…</a></blockquote>`;
+    mount.innerHTML = `<blockquote class="twitter-tweet" data-theme="${theme}" data-conversation="${conversation}"><a href="https://x.com/${tweet.author}/status/${tweet.id}">Loading tweet...</a></blockquote>`;
     container.appendChild(mount);
   }
 
