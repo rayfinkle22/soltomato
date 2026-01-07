@@ -31,14 +31,10 @@ export const GrowingSeeds = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {/* Ambient glow effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
-      
       {tomatoes.map((tomato) => (
         <div
           key={tomato.id}
-          className="fixed animate-tomato-fall opacity-60"
+          className="fixed animate-tomato-fall opacity-40"
           style={{
             left: `${tomato.x}%`,
             animationDelay: `${tomato.delay}s`,
