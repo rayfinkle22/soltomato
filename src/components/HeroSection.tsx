@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Copy, Check, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
-import tomatoBanner from "@/assets/tomato-banner.gif";
+import solBanner from "@/assets/sol-banner.jpeg";
 
 const CONTRACT_ADDRESS = "jk1T35eWK41MBMM8AWoYVaNbjHEEQzMDetTsfnqpump";
 
@@ -27,28 +27,11 @@ export const HeroSection = () => {
         {/* Hero banner image */}
         <div className="mb-4 sm:mb-8 relative w-full">
           <img 
-            src={tomatoBanner} 
-            alt="Trophy Tomato Banner" 
-            className="w-full max-w-6xl mx-auto drop-shadow-[0_0_40px_rgba(239,68,68,0.6)]"
+            src={solBanner} 
+            alt="Sol The Trophy Tomato - Powered by Claude" 
+            className="w-full max-w-6xl mx-auto rounded-lg"
           />
         </div>
-
-        {/* Title */}
-        <h1 className="font-display text-4xl sm:text-7xl md:text-8xl font-bold text-primary text-glow mb-1">
-          $SOL
-        </h1>
-
-        {/* Subtitle */}
-        <p className="font-display text-xl sm:text-3xl md:text-4xl mb-2">
-          <span className="text-foreground text-glow">The Trophy </span>
-          <span className="text-accent text-glow-red">Tomato</span>
-          <span> 🏆</span>
-        </p>
-
-        {/* Tagline */}
-        <p className="font-body text-sm sm:text-lg text-foreground/90 mb-4 max-w-2xl mx-auto">
-          The first documented case of AI tending to a living organism - cultivated and managed by Claude AI
-        </p>
 
 
         {/* Buttons Section */}
@@ -59,7 +42,7 @@ export const HeroSection = () => {
               variant="fun"
               size="default"
               asChild
-              className="group h-9 sm:h-12 px-4 sm:px-6"
+              className="group h-9 sm:h-12 px-4 sm:px-6 bg-white/20 hover:bg-white/30 text-white border-white/30"
             >
               <a
                 href={`https://dexscreener.com/solana/${CONTRACT_ADDRESS}`}
@@ -67,8 +50,8 @@ export const HeroSection = () => {
                 rel="noopener noreferrer"
               >
                 <span className="text-lg sm:text-2xl group-hover:animate-bounce">📊</span>
-                <span className="font-display text-sm sm:text-base">DEX</span>
-                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 opacity-60" />
+                <span className="font-display text-sm sm:text-base text-white">DEX</span>
+                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 opacity-60 text-white" />
               </a>
             </Button>
 
@@ -76,7 +59,7 @@ export const HeroSection = () => {
               variant="fun"
               size="default"
               asChild
-              className="group h-9 sm:h-12 px-4 sm:px-6"
+              className="group h-9 sm:h-12 px-4 sm:px-6 bg-white/20 hover:bg-white/30 text-white border-white/30"
             >
               <a
                 href={`https://pump.fun/coin/${CONTRACT_ADDRESS}`}
@@ -84,8 +67,8 @@ export const HeroSection = () => {
                 rel="noopener noreferrer"
               >
                 <span className="text-lg sm:text-2xl group-hover:animate-bounce">🚀</span>
-                <span className="font-display text-sm sm:text-base">Pump.fun</span>
-                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 opacity-60" />
+                <span className="font-display text-sm sm:text-base text-white">Pump.fun</span>
+                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 opacity-60 text-white" />
               </a>
             </Button>
 
@@ -93,18 +76,18 @@ export const HeroSection = () => {
               variant="fun"
               size="default"
               asChild
-              className="group h-9 sm:h-12 px-4 sm:px-6"
+              className="group h-9 sm:h-12 px-4 sm:px-6 bg-white/20 hover:bg-white/30 text-white border-white/30"
             >
               <a
                 href="https://x.com/i/communities/2005766071333077200"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-5 sm:h-5 fill-current">
+                <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-5 sm:h-5 fill-white">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
-                <span className="font-display text-sm sm:text-base">Community</span>
-                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 opacity-60" />
+                <span className="font-display text-sm sm:text-base text-white">Community</span>
+                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 opacity-60 text-white" />
               </a>
             </Button>
           </div>
@@ -112,16 +95,16 @@ export const HeroSection = () => {
           {/* Contract Address button */}
           <button
             onClick={copyCA}
-            className="flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 bg-card hover:bg-secondary/50 rounded-full border border-primary/40 hover:border-primary transition-all group box-glow"
+            className="flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 bg-white/10 hover:bg-white/20 rounded-full border border-white/30 hover:border-white/50 transition-all group"
           >
-            <span className="text-xs sm:text-sm text-muted-foreground font-body">CA:</span>
-            <code className="text-xs sm:text-sm font-mono text-foreground/80 truncate max-w-[180px] sm:max-w-none">
+            <span className="text-xs sm:text-sm text-white/70 font-body">CA:</span>
+            <code className="text-xs sm:text-sm font-mono text-white/90 truncate max-w-[180px] sm:max-w-none">
               {CONTRACT_ADDRESS}
             </code>
             {copied ? (
-              <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
+              <Check className="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" />
             ) : (
-              <Copy className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground group-hover:text-primary flex-shrink-0 transition-colors" />
+              <Copy className="w-4 h-4 sm:w-5 sm:h-5 text-white/70 group-hover:text-white flex-shrink-0 transition-colors" />
             )}
             <span className="text-xl sm:text-2xl">🍅</span>
           </button>
