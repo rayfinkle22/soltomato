@@ -10,19 +10,19 @@ export const DexChart = () => {
   return (
     <section id="chart" className="relative z-10 py-6 sm:py-8 px-4">
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-display text-3xl sm:text-4xl text-center text-primary text-glow mb-1">
+        <h2 className="font-display text-3xl sm:text-4xl text-center text-white mb-1">
           Live Chart 📈
         </h2>
-        <p className="font-body text-center text-muted-foreground mb-4">
+        <p className="font-body text-center text-white/70 mb-4">
           Track $SOL in real-time on Dexscreener
         </p>
 
         {/* Market Stats Display */}
-        <div className="mb-6 p-4 rounded-2xl retro-border bg-card/50 backdrop-blur-sm">
+        <div className="mb-6 p-4 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm">
           <div className="grid grid-cols-3 gap-4">
             <div className="text-center">
-              <p className="font-body text-sm text-muted-foreground mb-1">Market Cap</p>
-              <p className="font-display text-xl sm:text-2xl text-foreground text-glow">
+              <p className="font-body text-sm text-white/70 mb-1">Market Cap</p>
+              <p className="font-display text-xl sm:text-2xl text-white">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
                 ) : marketCap ? (
@@ -33,8 +33,8 @@ export const DexChart = () => {
               </p>
             </div>
             <div className="text-center">
-              <p className="font-body text-sm text-muted-foreground mb-1">24h Txns</p>
-              <p className="font-display text-xl sm:text-2xl text-foreground text-glow">
+              <p className="font-body text-sm text-white/70 mb-1">24h Txns</p>
+              <p className="font-display text-xl sm:text-2xl text-white">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
                 ) : totalTxns !== null ? (
@@ -45,8 +45,8 @@ export const DexChart = () => {
               </p>
             </div>
             <div className="text-center">
-              <p className="font-body text-sm text-muted-foreground mb-1">24h Change</p>
-              <p className="font-display text-xl sm:text-2xl text-foreground text-glow">
+              <p className="font-body text-sm text-white/70 mb-1">24h Change</p>
+              <p className="font-display text-xl sm:text-2xl text-white">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
                 ) : priceChange24h !== null ? (
@@ -59,7 +59,7 @@ export const DexChart = () => {
           </div>
         </div>
 
-        <div className="rounded-2xl retro-border overflow-hidden bg-card/50 backdrop-blur-sm">
+        <div className="rounded-2xl border border-white/20 overflow-hidden bg-white/10 backdrop-blur-sm">
           <iframe
             src="https://dexscreener.com/solana/CcYbXbMHr2o9Vyz2wmJcRvi59wh42xkXf6qrzChbHPN5?embed=1&theme=dark&trades=0&info=0"
             title="$SOL Trophy Tomato Dexscreener Chart"
@@ -74,7 +74,7 @@ export const DexChart = () => {
             href={`https://dexscreener.com/solana/${CONTRACT_ADDRESS}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-body text-primary hover:text-accent transition-colors inline-flex items-center gap-2"
+            className="font-body text-white hover:text-white/80 transition-colors inline-flex items-center gap-2 underline underline-offset-2"
           >
             View full chart on Dexscreener →
           </a>

@@ -55,8 +55,8 @@ export default {
         "glow-green": "hsl(145 100% 50%)",
         "glow-cyan": "hsl(165 100% 50%)",
         "deep-green": "hsl(var(--deep-green))",
-        // Sol coral background
-        "sol-coral": "#E67553",
+        // Sol coral background - darker to match banner
+        "sol-coral": "#D85A3A",
         garden: {
           dirt: "hsl(var(--dirt))",
           grass: "hsl(var(--grass))",
