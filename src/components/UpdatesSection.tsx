@@ -3,8 +3,9 @@ import { ExternalLink } from "lucide-react";
 import { renderTweets } from "@/lib/twitterWidgets";
 
 const tweets = [
-  { id: "2007656914772259128", author: "d33v33d0", label: "Latest Update" },
-  { id: "2007280874354864585", author: "d33v33d0", label: "Previous Update" },
+  { id: "2008744250301968687", author: "d33v33d0", label: "Latest Update" },
+  { id: "2007656914772259128", author: "d33v33d0", label: "Previous Update" },
+  { id: "2007280874354864585", author: "d33v33d0", label: "Update" },
   { id: "2006221407340867881", author: "d33v33d0", label: "Initial Thread" },
 ];
 
