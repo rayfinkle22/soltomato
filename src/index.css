@@ -105,12 +105,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body font-semibold min-h-screen;
-    background: 
-      radial-gradient(ellipse at 20% 20%, hsl(145 100% 50% / 0.1) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 80%, hsl(165 100% 50% / 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, hsl(8 85% 50% / 0.03) 0%, transparent 70%),
-      hsl(var(--background));
+    @apply bg-sol-coral text-white font-body font-semibold min-h-screen;
   }
 
   h1, h2, h3, h4, h5, h6 {
