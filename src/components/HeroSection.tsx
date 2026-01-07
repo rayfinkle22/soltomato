@@ -42,7 +42,7 @@ export const HeroSection = () => {
               variant="fun"
               size="default"
               asChild
-              className="group h-9 sm:h-12 px-4 sm:px-6 bg-white/20 hover:bg-white/30 text-white border-white/30"
+              className="group h-9 sm:h-12 px-4 sm:px-6 bg-primary hover:bg-secondary text-white border-white/20"
             >
               <a
                 href={`https://dexscreener.com/solana/${CONTRACT_ADDRESS}`}
@@ -59,7 +59,7 @@ export const HeroSection = () => {
               variant="fun"
               size="default"
               asChild
-              className="group h-9 sm:h-12 px-4 sm:px-6 bg-white/20 hover:bg-white/30 text-white border-white/30"
+              className="group h-9 sm:h-12 px-4 sm:px-6 bg-primary hover:bg-secondary text-white border-white/20"
             >
               <a
                 href={`https://pump.fun/coin/${CONTRACT_ADDRESS}`}
@@ -76,7 +76,7 @@ export const HeroSection = () => {
               variant="fun"
               size="default"
               asChild
-              className="group h-9 sm:h-12 px-4 sm:px-6 bg-white/20 hover:bg-white/30 text-white border-white/30"
+              className="group h-9 sm:h-12 px-4 sm:px-6 bg-primary hover:bg-secondary text-white border-white/20"
             >
               <a
                 href="https://x.com/i/communities/2005766071333077200"
