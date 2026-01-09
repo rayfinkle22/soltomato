@@ -45,7 +45,7 @@ export const HeroSection = () => {
               variant="fun"
               size="default"
               asChild
-              className="group h-9 sm:h-12 px-4 sm:px-6 bg-primary hover:bg-secondary text-white border-white/20"
+              className="group h-9 sm:h-12 px-4 sm:px-6 bg-primary/70 hover:bg-primary text-white border-white/20"
             >
               <a
                 href={`https://dexscreener.com/solana/${CONTRACT_ADDRESS}`}
@@ -62,7 +62,7 @@ export const HeroSection = () => {
               variant="fun"
               size="default"
               asChild
-              className="group h-9 sm:h-12 px-4 sm:px-6 bg-primary hover:bg-secondary text-white border-white/20"
+              className="group h-9 sm:h-12 px-4 sm:px-6 bg-primary/70 hover:bg-primary text-white border-white/20"
             >
               <a
                 href={`https://pump.fun/coin/${CONTRACT_ADDRESS}`}
@@ -79,7 +79,7 @@ export const HeroSection = () => {
               variant="fun"
               size="default"
               asChild
-              className="group h-9 sm:h-12 px-4 sm:px-6 bg-primary hover:bg-secondary text-white border-white/20"
+              className="group h-9 sm:h-12 px-4 sm:px-6 bg-primary/70 hover:bg-primary text-white border-white/20"
             >
               <a
                 href="https://x.com/i/communities/2005766071333077200"
@@ -98,7 +98,7 @@ export const HeroSection = () => {
           {/* Contract Address button */}
           <button
             onClick={copyCA}
-            className="flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 bg-primary hover:bg-secondary rounded-full border border-primary transition-all group"
+            className="flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 bg-primary/70 hover:bg-primary rounded-full border border-primary/50 transition-all group"
           >
             <span className="text-xs sm:text-sm text-white/80 font-body">CA:</span>
             <code className="text-xs sm:text-sm font-mono text-white truncate max-w-[180px] sm:max-w-none">

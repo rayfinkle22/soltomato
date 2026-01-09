@@ -16,12 +16,12 @@
     --popover: 18 30% 94%;
     --popover-foreground: 12 50% 25%;
 
-    /* Softer coral orange for buttons/primary */
-    --primary: 15 65% 55%;
+    /* Coral orange for buttons/primary - #EC6D43 */
+    --primary: 15 82% 59%;
     --primary-foreground: 0 0% 100%;
 
-    /* Muted coral secondary */
-    --secondary: 15 55% 48%;
+    /* Darker coral secondary */
+    --secondary: 15 75% 50%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 20 20% 85%;

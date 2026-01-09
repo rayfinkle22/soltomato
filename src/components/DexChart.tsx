@@ -18,7 +18,7 @@ export const DexChart = () => {
         </p>
 
         {/* Market Stats Display */}
-        <div className="mb-6 p-4 rounded-2xl border border-primary/30 bg-primary backdrop-blur-sm">
+        <div className="mb-6 p-4 rounded-2xl border border-primary/30 bg-primary/70 backdrop-blur-sm">
           <div className="grid grid-cols-3 gap-4">
             <div className="text-center">
               <p className="font-body text-sm text-white/80 mb-1">Market Cap</p>

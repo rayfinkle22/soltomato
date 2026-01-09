@@ -58,7 +58,7 @@ export const BiodomeSection = () => {
             href="https://autoncorp.com/biodome/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary border border-primary hover:bg-secondary transition-all group"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary/70 border border-primary/50 hover:bg-primary transition-all group"
           >
             <span className="font-display text-white">Visit Full Biodome Dashboard</span>
             <ExternalLink className="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

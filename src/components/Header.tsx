@@ -26,7 +26,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-primary backdrop-blur-lg border-b border-white/20">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-primary/80 backdrop-blur-lg border-b border-white/20">
       <div className="max-w-6xl mx-auto px-3 py-2 sm:py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
