@@ -16,12 +16,12 @@
     --popover: 18 30% 94%;
     --popover-foreground: 12 50% 25%;
 
-    /* Coral orange for buttons/primary */
-    --primary: 15 82% 59%;
+    /* Softer coral orange for buttons/primary */
+    --primary: 15 65% 55%;
     --primary-foreground: 0 0% 100%;
 
-    /* Darker coral secondary */
-    --secondary: 15 75% 50%;
+    /* Muted coral secondary */
+    --secondary: 15 55% 48%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 20 20% 85%;
@@ -98,7 +98,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body font-semibold min-h-screen;
+    @apply bg-background text-foreground font-body font-normal min-h-screen;
   }
 
   h1, h2, h3, h4, h5, h6 {
