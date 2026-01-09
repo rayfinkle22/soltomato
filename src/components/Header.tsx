@@ -38,7 +38,7 @@ export const Header = () => {
             </Link>
           </div>
           <div className="flex items-center gap-2">
-            <div className="flex items-center px-2 sm:px-3 h-8 rounded-md bg-white/10 border border-white/20">
+            <div className="flex items-center px-2 sm:px-3 h-8 rounded-md bg-white/20 border border-white/30">
               <span className="font-display text-sm sm:text-base text-white">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
