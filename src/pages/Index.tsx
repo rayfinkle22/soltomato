@@ -6,7 +6,7 @@ import { BiodomeSection } from "@/components/BiodomeSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-sol-coral flex flex-col relative">
+    <div className="min-h-screen bg-background flex flex-col relative">
       <Header />
       <main className="flex-1 relative z-10 pt-14 sm:pt-16">
         <HeroSection />
