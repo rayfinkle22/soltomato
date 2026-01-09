@@ -6,9 +6,9 @@
 
 @layer base {
   :root {
-    /* Coral orange background */
-    --background: 15 82% 59%;
-    --foreground: 0 0% 100%;
+    /* Warm cream background */
+    --background: 25 43% 89%;
+    --foreground: 12 50% 25%;
 
     --card: 18 30% 93%;
     --card-foreground: 12 50% 25%;
