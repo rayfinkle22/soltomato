@@ -32,7 +32,7 @@ export const HeroSection = () => {
             loop
             muted
             playsInline
-            className="w-full max-w-3xl mx-auto rounded-lg shadow-lg"
+            className="w-full max-w-5xl mx-auto rounded-lg shadow-lg"
           />
         </div>
 
