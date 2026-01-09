@@ -6,15 +6,15 @@
 
 @layer base {
   :root {
-    /* Coral theme - lighter background */
-    --background: 20 30% 92%;
-    --foreground: 12 60% 25%;
+    /* Coral theme - warm off-white background */
+    --background: 18 35% 96%;
+    --foreground: 12 50% 25%;
 
-    --card: 20 25% 88%;
-    --card-foreground: 12 60% 25%;
+    --card: 18 30% 93%;
+    --card-foreground: 12 50% 25%;
 
-    --popover: 20 25% 90%;
-    --popover-foreground: 12 60% 25%;
+    --popover: 18 30% 94%;
+    --popover-foreground: 12 50% 25%;
 
     /* Dark coral for buttons/primary */
     --primary: 12 65% 40%;
