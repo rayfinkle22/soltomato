@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Copy, Check, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
-import solBanner from "@/assets/sol-banner.jpeg";
 import solVideo from "@/assets/SOL_1.mp4";
 
 const CONTRACT_ADDRESS = "jk1T35eWK41MBMM8AWoYVaNbjHEEQzMDetTsfnqpump";
@@ -25,8 +24,8 @@ export const HeroSection = () => {
     <section id="hero" className="relative flex flex-col items-center justify-center px-3 sm:px-4 py-6 sm:py-10 overflow-hidden">
       {/* Main content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto w-full">
-        {/* Video above banner */}
-        <div className="mb-4 sm:mb-6 w-full">
+        {/* Video */}
+        <div className="mb-4 sm:mb-8 w-full">
           <video 
             src={solVideo}
             autoPlay
@@ -34,15 +33,6 @@ export const HeroSection = () => {
             muted
             playsInline
             className="w-full max-w-3xl mx-auto rounded-lg shadow-lg"
-          />
-        </div>
-
-        {/* Hero banner image */}
-        <div className="mb-4 sm:mb-8 relative w-full">
-          <img 
-            src={solBanner} 
-            alt="Sol The Trophy Tomato - Powered by Claude" 
-            className="w-full max-w-6xl mx-auto rounded-lg"
           />
         </div>
 

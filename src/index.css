@@ -6,8 +6,8 @@
 
 @layer base {
   :root {
-    /* Coral theme - warm off-white background */
-    --background: 18 35% 96%;
+    /* Warm off-white background matching banner tones */
+    --background: 25 40% 97%;
     --foreground: 12 50% 25%;
 
     --card: 18 30% 93%;
