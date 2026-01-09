@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMarketData, formatMarketCap } from "@/hooks/useMarketData";
 import { Menu, X, ChartLine, Leaf, Home, Rocket } from "lucide-react";
-import solIcon from "@/assets/sol-icon.jpeg";
-
+import logoSOL from "@/assets/logoSOL.png";
 const CONTRACT_ADDRESS = "jk1T35eWK41MBMM8AWoYVaNbjHEEQzMDetTsfnqpump";
 
 const navItems = [
@@ -31,15 +30,15 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <img src={solIcon} alt="Sol Icon" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
-              <span className="font-display text-base sm:text-xl font-bold text-white">
+              <img src={logoSOL} alt="Sol Logo" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
+              <span className="font-display text-base sm:text-xl font-normal text-white">
                 Sol the Trophy Tomato
               </span>
             </Link>
           </div>
           <div className="flex items-center gap-2">
             <div className="flex items-center px-2 sm:px-3 h-8 rounded-md bg-white/20 border border-white/30">
-              <span className="font-display text-sm sm:text-base text-white">
+              <span className="font-display text-sm sm:text-base font-normal text-white">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
                 ) : marketCap ? (
