@@ -98,16 +98,16 @@ export const HeroSection = () => {
           {/* Contract Address button */}
           <button
             onClick={copyCA}
-            className="flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 bg-white/10 hover:bg-white/20 rounded-full border border-white/30 hover:border-white/50 transition-all group"
+            className="flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 bg-primary hover:bg-secondary rounded-full border border-primary transition-all group"
           >
-            <span className="text-xs sm:text-sm text-white/70 font-body">CA:</span>
-            <code className="text-xs sm:text-sm font-mono text-white/90 truncate max-w-[180px] sm:max-w-none">
+            <span className="text-xs sm:text-sm text-white/80 font-body">CA:</span>
+            <code className="text-xs sm:text-sm font-mono text-white truncate max-w-[180px] sm:max-w-none">
               {CONTRACT_ADDRESS}
             </code>
             {copied ? (
               <Check className="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" />
             ) : (
-              <Copy className="w-4 h-4 sm:w-5 sm:h-5 text-white/70 group-hover:text-white flex-shrink-0 transition-colors" />
+              <Copy className="w-4 h-4 sm:w-5 sm:h-5 text-white/80 group-hover:text-white flex-shrink-0 transition-colors" />
             )}
             <span className="text-xl sm:text-2xl">🍅</span>
           </button>

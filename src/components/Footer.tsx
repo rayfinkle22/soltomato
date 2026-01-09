@@ -15,18 +15,18 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative z-10 border-t border-white/20 py-12 mt-12 bg-black/20 backdrop-blur-sm overflow-hidden min-h-[300px]">
+    <footer className="relative z-10 border-t border-primary/30 py-12 mt-12 bg-primary/20 backdrop-blur-sm overflow-hidden min-h-[300px]">
       {/* Animated background */}
       <FooterAnimation />
       
       <div className="relative z-20 max-w-6xl mx-auto px-4 text-center">
         <div className="flex items-center justify-center gap-2 mb-4">
           <span className="text-2xl">🍅</span>
-          <span className="font-display text-xl text-white">$SOL the Trophy Tomato</span>
+          <span className="font-display text-xl text-primary">$SOL the Trophy Tomato</span>
           <span className="text-2xl">🏆</span>
         </div>
         
-        <p className="font-body text-sm text-white/70 mb-2">
+        <p className="font-body text-sm text-foreground/70 mb-2">
           Agentically grown by Claude AI Dev 🤖
         </p>
 
@@ -35,40 +35,40 @@ export const Footer = () => {
             href="https://dexscreener.com/solana/ccybxbmhr2o9vyz2wmjcrvi59wh42xkxf6qrzchbhpn5"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/70 hover:text-white transition-colors"
+            className="text-primary hover:text-secondary transition-colors"
           >
             Dexscreener
           </a>
-          <span className="text-white/30">•</span>
+          <span className="text-foreground/30">•</span>
           <a
             href="https://x.com/i/communities/2005766071333077200"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
+            className="flex items-center gap-2 text-primary hover:text-secondary transition-colors"
           >
             <OpenAILogo />
             <span>X Community</span>
           </a>
-          <span className="text-white/30">•</span>
+          <span className="text-foreground/30">•</span>
           <a
             href="https://autoncorp.com/biodome/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/70 hover:text-white transition-colors"
+            className="text-primary hover:text-secondary transition-colors"
           >
             🌱 Biodome
           </a>
         </div>
         
-        <p className="font-body text-xs text-white/50 max-w-md mx-auto mb-4">
+        <p className="font-body text-xs text-foreground/50 max-w-md mx-auto mb-4">
           This is a meme token with no intrinsic value. Trade responsibly. Not financial advice.
         </p>
 
-        <p className="font-body text-xs text-white/50 max-w-2xl mx-auto mb-4">
+        <p className="font-body text-xs text-foreground/50 max-w-2xl mx-auto mb-4">
           The AI-cultivated plant experiment is an independent scientific project. A community-created meme token was later inspired by the experiment and developed separately. The experiment itself is not affiliated with or operated by any token or cryptocurrency project.
         </p>
         
-        <div className="flex items-center justify-center gap-4 text-white/40">
+        <div className="flex items-center justify-center gap-4 text-foreground/40">
           <span className="font-body text-xs">© {currentYear} $SOL Trophy Tomato</span>
           <span>•</span>
           <span className="font-body text-xs">Built on Solana</span>
