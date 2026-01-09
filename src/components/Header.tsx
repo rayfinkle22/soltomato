@@ -25,20 +25,20 @@ export const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-primary/80 backdrop-blur-lg border-b border-white/20">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-white/90 backdrop-blur-lg border-b border-background/20">
       <div className="max-w-6xl mx-auto px-3 py-2 sm:py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <img src={logoSOL} alt="Sol Logo" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
-              <span className="font-display text-base sm:text-xl font-normal text-white">
+              <span className="font-display text-base sm:text-xl font-normal text-background">
                 Sol the Trophy Tomato
               </span>
             </Link>
           </div>
           <div className="flex items-center gap-2">
-            <div className="flex items-center px-2 sm:px-3 h-8 rounded-md bg-white/20 border border-white/30">
-              <span className="font-display text-sm sm:text-base font-normal text-white">
+            <div className="flex items-center px-2 sm:px-3 h-8 rounded-md bg-background/20 border border-background/30">
+              <span className="font-display text-sm sm:text-base font-normal text-background">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
                 ) : marketCap ? (
@@ -54,10 +54,10 @@ export const Header = () => {
               href="https://x.com/i/communities/2005766071333077200"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-8 h-8 rounded-md border border-white/30 bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all"
+              className="w-8 h-8 rounded-md border border-background/30 bg-background/10 hover:bg-background/20 flex items-center justify-center transition-all"
               aria-label="X Community"
             >
-              <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white">
+              <svg viewBox="0 0 24 24" className="w-4 h-4 fill-background">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
@@ -66,13 +66,13 @@ export const Header = () => {
             <div className="relative">
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="w-8 h-8 rounded-md border border-white/30 bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all"
+                className="w-8 h-8 rounded-md border border-background/30 bg-background/10 hover:bg-background/20 flex items-center justify-center transition-all"
                 aria-label="Quick navigation"
               >
                 {menuOpen ? (
-                  <X className="w-4 h-4 text-white" />
+                  <X className="w-4 h-4 text-background" />
                 ) : (
-                  <Menu className="w-4 h-4 text-white" />
+                  <Menu className="w-4 h-4 text-background" />
                 )}
               </button>
 
