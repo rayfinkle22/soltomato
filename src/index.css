@@ -6,44 +6,44 @@
 
 @layer base {
   :root {
-    /* Coral theme */
-    --background: 12 60% 45%;
-    --foreground: 0 0% 100%;
+    /* Coral theme - lighter background */
+    --background: 20 30% 92%;
+    --foreground: 12 60% 25%;
 
-    --card: 12 55% 40%;
-    --card-foreground: 0 0% 100%;
+    --card: 20 25% 88%;
+    --card-foreground: 12 60% 25%;
 
-    --popover: 12 55% 38%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 20 25% 90%;
+    --popover-foreground: 12 60% 25%;
 
     /* Dark coral for buttons/primary */
-    --primary: 12 65% 35%;
+    --primary: 12 65% 40%;
     --primary-foreground: 0 0% 100%;
 
     /* Darker coral secondary */
-    --secondary: 12 50% 30%;
+    --secondary: 12 55% 35%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 12 40% 35%;
-    --muted-foreground: 0 0% 85%;
+    --muted: 20 20% 85%;
+    --muted-foreground: 12 40% 40%;
 
-    /* White accent */
-    --accent: 0 0% 100%;
-    --accent-foreground: 12 60% 35%;
+    /* Coral accent */
+    --accent: 12 60% 45%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 100% / 0.2;
-    --input: 0 0% 100% / 0.2;
-    --ring: 0 0% 100%;
+    --border: 12 30% 70%;
+    --input: 12 30% 75%;
+    --ring: 12 60% 45%;
 
     --radius: 0.75rem;
 
     /* Coral palette */
-    --sol-coral: 12 60% 45%;
-    --sol-coral-dark: 12 65% 35%;
-    --sol-coral-darker: 12 70% 28%;
+    --sol-coral: 12 60% 55%;
+    --sol-coral-dark: 12 65% 40%;
+    --sol-coral-darker: 12 70% 32%;
 
     --sidebar-background: 12 55% 40%;
     --sidebar-foreground: 0 0% 100%;
@@ -56,33 +56,33 @@
   }
 
   .dark {
-    --background: 12 60% 45%;
-    --foreground: 0 0% 100%;
-    --card: 12 55% 40%;
-    --card-foreground: 0 0% 100%;
-    --popover: 12 55% 38%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 12 65% 35%;
+    --background: 20 30% 92%;
+    --foreground: 12 60% 25%;
+    --card: 20 25% 88%;
+    --card-foreground: 12 60% 25%;
+    --popover: 20 25% 90%;
+    --popover-foreground: 12 60% 25%;
+    --primary: 12 65% 40%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 12 50% 30%;
+    --secondary: 12 55% 35%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 12 40% 35%;
-    --muted-foreground: 0 0% 85%;
-    --accent: 0 0% 100%;
-    --accent-foreground: 12 60% 35%;
+    --muted: 20 20% 85%;
+    --muted-foreground: 12 40% 40%;
+    --accent: 12 60% 45%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 100% / 0.2;
-    --input: 0 0% 100% / 0.2;
-    --ring: 0 0% 100%;
-    --sidebar-background: 12 55% 40%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 12 65% 35%;
+    --border: 12 30% 70%;
+    --input: 12 30% 75%;
+    --ring: 12 60% 45%;
+    --sidebar-background: 20 25% 88%;
+    --sidebar-foreground: 12 60% 25%;
+    --sidebar-primary: 12 65% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 100%;
-    --sidebar-accent-foreground: 12 60% 35%;
-    --sidebar-border: 0 0% 100% / 0.2;
-    --sidebar-ring: 0 0% 100%;
+    --sidebar-accent: 12 60% 45%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 12 30% 70%;
+    --sidebar-ring: 12 60% 45%;
   }
 }
 
@@ -98,7 +98,7 @@
   }
 
   body {
-    @apply bg-sol-coral text-white font-body font-semibold min-h-screen;
+    @apply bg-background text-foreground font-body font-semibold min-h-screen;
   }
 
   h1, h2, h3, h4, h5, h6 {
