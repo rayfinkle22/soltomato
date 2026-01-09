@@ -6,9 +6,9 @@
 
 @layer base {
   :root {
-    /* Warm off-white background matching banner tones */
-    --background: 25 40% 97%;
-    --foreground: 12 50% 25%;
+    /* Coral orange background */
+    --background: 15 82% 59%;
+    --foreground: 0 0% 100%;
 
     --card: 18 30% 93%;
     --card-foreground: 12 50% 25%;
