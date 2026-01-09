@@ -18,11 +18,11 @@ export const DexChart = () => {
         </p>
 
         {/* Market Stats Display */}
-        <div className="mb-6 p-4 rounded-2xl border border-foreground/20 bg-background/80 backdrop-blur-sm">
+        <div className="mb-6 p-4 rounded-2xl border border-white/20 bg-white/80 backdrop-blur-sm">
           <div className="grid grid-cols-3 gap-4">
             <div className="text-center">
-              <p className="font-body text-sm text-foreground/70 mb-1">Market Cap</p>
-              <p className="font-display text-xl sm:text-2xl text-foreground">
+              <p className="font-body text-sm text-white/70 mb-1">Market Cap</p>
+              <p className="font-display text-xl sm:text-2xl text-white">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
                 ) : marketCap ? (
@@ -33,8 +33,8 @@ export const DexChart = () => {
               </p>
             </div>
             <div className="text-center">
-              <p className="font-body text-sm text-foreground/70 mb-1">24h Txns</p>
-              <p className="font-display text-xl sm:text-2xl text-foreground">
+              <p className="font-body text-sm text-white/70 mb-1">24h Txns</p>
+              <p className="font-display text-xl sm:text-2xl text-white">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
                 ) : totalTxns !== null ? (
@@ -45,8 +45,8 @@ export const DexChart = () => {
               </p>
             </div>
             <div className="text-center">
-              <p className="font-body text-sm text-foreground/70 mb-1">24h Change</p>
-              <p className="font-display text-xl sm:text-2xl text-foreground">
+              <p className="font-body text-sm text-white/70 mb-1">24h Change</p>
+              <p className="font-display text-xl sm:text-2xl text-white">
                 {isLoading ? (
                   <span className="animate-pulse">...</span>
                 ) : priceChange24h !== null ? (

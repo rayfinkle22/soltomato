@@ -45,7 +45,7 @@ export const HeroSection = () => {
               variant="fun"
               size="default"
               asChild
-              className="group h-9 sm:h-12 px-4 sm:px-6 bg-background/80 hover:bg-background text-foreground border-foreground/20"
+              className="group h-9 sm:h-12 px-4 sm:px-6 bg-white/80 hover:bg-white text-white border-white/20"
             >
               <a
                 href={`https://dexscreener.com/solana/${CONTRACT_ADDRESS}`}
@@ -53,8 +53,8 @@ export const HeroSection = () => {
                 rel="noopener noreferrer"
               >
                 <span className="text-lg sm:text-2xl group-hover:animate-bounce">📊</span>
-                <span className="font-display text-sm sm:text-base text-foreground">DEX</span>
-                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 opacity-60 text-foreground" />
+                <span className="font-display text-sm sm:text-base text-white">DEX</span>
+                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 opacity-60 text-white" />
               </a>
             </Button>
 
@@ -62,7 +62,7 @@ export const HeroSection = () => {
               variant="fun"
               size="default"
               asChild
-              className="group h-9 sm:h-12 px-4 sm:px-6 bg-background/80 hover:bg-background text-foreground border-foreground/20"
+              className="group h-9 sm:h-12 px-4 sm:px-6 bg-white/80 hover:bg-white text-white border-white/20"
             >
               <a
                 href={`https://pump.fun/coin/${CONTRACT_ADDRESS}`}
@@ -70,8 +70,8 @@ export const HeroSection = () => {
                 rel="noopener noreferrer"
               >
                 <span className="text-lg sm:text-2xl group-hover:animate-bounce">🚀</span>
-                <span className="font-display text-sm sm:text-base text-foreground">Pump.fun</span>
-                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 opacity-60 text-foreground" />
+                <span className="font-display text-sm sm:text-base text-white">Pump.fun</span>
+                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 opacity-60 text-white" />
               </a>
             </Button>
 
@@ -79,18 +79,18 @@ export const HeroSection = () => {
               variant="fun"
               size="default"
               asChild
-              className="group h-9 sm:h-12 px-4 sm:px-6 bg-background/80 hover:bg-background text-foreground border-foreground/20"
+              className="group h-9 sm:h-12 px-4 sm:px-6 bg-white/80 hover:bg-white text-white border-white/20"
             >
               <a
                 href="https://x.com/i/communities/2005766071333077200"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-5 sm:h-5 fill-foreground">
+                <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-5 sm:h-5 fill-white">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
-                <span className="font-display text-sm sm:text-base text-foreground">Community</span>
-                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 opacity-60 text-foreground" />
+                <span className="font-display text-sm sm:text-base text-white">Community</span>
+                <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 opacity-60 text-white" />
               </a>
             </Button>
           </div>
@@ -98,16 +98,16 @@ export const HeroSection = () => {
           {/* Contract Address button */}
           <button
             onClick={copyCA}
-            className="flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 bg-background/80 hover:bg-background rounded-full border border-foreground/20 transition-all group"
+            className="flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 bg-white/80 hover:bg-white rounded-full border border-white/20 transition-all group"
           >
-            <span className="text-xs sm:text-sm text-foreground/70 font-body">CA:</span>
-            <code className="text-xs sm:text-sm font-mono text-foreground truncate max-w-[180px] sm:max-w-none">
+            <span className="text-xs sm:text-sm text-white/70 font-body">CA:</span>
+            <code className="text-xs sm:text-sm font-mono text-white truncate max-w-[180px] sm:max-w-none">
               {CONTRACT_ADDRESS}
             </code>
             {copied ? (
-              <Check className="w-4 h-4 sm:w-5 sm:h-5 text-foreground flex-shrink-0" />
+              <Check className="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" />
             ) : (
-              <Copy className="w-4 h-4 sm:w-5 sm:h-5 text-foreground/70 group-hover:text-foreground flex-shrink-0 transition-colors" />
+              <Copy className="w-4 h-4 sm:w-5 sm:h-5 text-white/70 group-hover:text-white flex-shrink-0 transition-colors" />
             )}
             <span className="text-xl sm:text-2xl">🍅</span>
           </button>
